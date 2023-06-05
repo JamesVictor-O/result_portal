@@ -65,7 +65,22 @@ const studentDataBase = [
     },
 ]
 
+let storedStudentDatabase=localStorage.setItem('studentDataBase',JSON.stringify(studentDataBase))
+
+
 function CollectStudentScorse() {
+    AdminSubmitResult()
+    let parsedDatabase = studentDataBase
+    let allGrades = document.querySelectorAll(".grade")
+    for (let i = 0; i)
+    console.log(allGrades)
+    
+}
+
+CollectStudentScorse()
+
+
+function AdminSubmitResult() {
     submitButton.addEventListener('click', () => {
         let studentAdmissionNumber = studentAdmNo.value;
         let gradingCourse = studentCourse.value;
@@ -77,17 +92,19 @@ function CollectStudentScorse() {
                 let courseList=studentDataBase[i].courses
                 for (let i = 0; i < 10; i++){
                     if (courseList.hasOwnProperty(gradingCourse)) {
-                        courseList[gradingCourse]=courseGrade
+                        courseList[gradingCourse] = courseGrade
+                        localStorage.setItem('database', JSON.stringify(studentDataBase))
                     } else {
                         console.log("no")
                     }
                 }
                 // studentDataBase[i].courses[gradingCourse] = courseGrade;
-                console.log( studentDataBase[i].courses)
+                console.log( studentDataBase[i])
                 
             }
         }
-        
+        let storedDatabase = localStorage.getItem("database");
+        parsedDatabase = JSON.parse(storedDatabase)
+        console.log(parsedDatabase)
     })
 }
-CollectStudentScorse()

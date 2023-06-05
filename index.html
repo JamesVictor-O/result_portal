@@ -4,11 +4,218 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <title>StudentManagementSystem</title>
 </head>
 <body>
-    <div>
-        <h2>how are you come to nhim!!!</h2>
-    </div>
+    <!-- header -->
+    <header>
+       <!-- logo -->
+       <div>
+            <img src="assets/logo.png">
+            <h2></h2>
+       </div>
+       <div class="institute">
+            <h2>TRITRIANGLE <br><span>INSTITUE OF MANAGEMENT</span></h2>
+       </div>
+    </header>
+
+    <!-- body -->
+    <main>
+       <section class="student">
+            <!-- student details -->
+        <ul class="studentdetails">
+            <li class="detail">
+                <label>STUDENT'S ADM NO.  :</label>
+                <h3>131021316</h3>
+            </li>
+            <li class="detail">
+                <label>STUDENT'S NAME  :</label>
+                <h3>JAMES VICTOR OCHULA</h3>
+            </li>
+            <li class="detail">
+                <label>DATE OF BIRTH  :</label>
+                <h3>24-05-1995</h3>
+            </li>
+            <li class="detail">
+                <label>PROGRAM  :</label>
+                <h3>Diploma in Eletrical Enginneering</h3>
+            </li>
+            <li class="detail">
+                <label>BATCH/YEAR : </label>
+                <h3> Dec 3. 2020/3rd</h3>
+            </li>
+        </ul>
+        <!-- student result sheet -->
+        <div class="resultsheet">
+            <table class="table">
+                <tr>
+                    <th>YEAR</th>
+                    <th>SUBJECT</th>
+                    <th>MAX MARKS</th>
+                    <th>MIN MARKS</th>
+                    <th>MARKS OBTAINED</th>
+                </tr>
+                <tr>
+                    <td>II</td>
+                    <td>Electrical Machines</td>
+                    <td>100</td>
+                    <td>50</td>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <td>II</td>
+                    <td>Computer aided electrical drawing</td>
+                    <td>100</td>
+                    <td>50</td>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <td>II</td>
+                    <td>Electrical Power generation</td>
+                    <td>100</td>
+                    <td>50</td>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <td>II</td>
+                    <td>Transmission and Distribution</td>
+                    <td>100</td>
+                    <td>50</td>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <td>II</td>
+                    <td>Basic Management skills</td>
+                    <td>100</td>
+                    <td>50</td>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <td>III</td>
+                    <td>Estimation and Specification</td>
+                    <td>100</td>
+                    <td>50</td>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <td>III</td>
+                    <td>Electrical energy utility and Management</td>
+                    <td>100</td>
+                    <td>50</td>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <td>III</td>
+                    <td>Electrical Motor Control</td>
+                    <td>100</td>
+                    <td>50</td>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <td>III</td>
+                    <td>Electrical Installation</td>
+                    <td>100</td>
+                    <td>50</td>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <td>III</td>
+                    <td>PLC and HDL</td>
+                    <td>100</td>
+                    <td>50</td>
+                    <td>60</td>
+                </tr>
+            </table>
+
+            <!-- result sumation -->
+            <table class="table2">
+                <tr>
+                    <th>YEAR</th>
+                    <th>TOTAL OBTAINED MARKS</th>
+                    <th>MAX TOTAL MARKS</th>
+                    <th>RESULTS</th>
+                </tr>
+                <tr>
+                    <td>I</td>
+                    <td>LATERAL ENTRY</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>II</td>
+                    <td>356</td>
+                    <td>500</td>
+                    <td>PASSED</td>
+                </tr>
+                <tr>
+                    <td>II</td>
+                    <td>356</td>
+                    <td>500</td>
+                    <td>PASSED</td>
+                </tr>
+
+            </table>
+            <!-- complement -->
+
+            <table class="table3">
+                <tr>
+                    <th>RESULT</th>
+                    <th>TOTAL OBTAINED MARKS</th>
+                    <th>MAX MARKS</th>
+                    <th>GRADE</th>
+                </tr>
+                <tr>
+                    <td>COURSE COMPLETED</td>
+                    <td>700</td>
+                    <td>1000</td>
+                    <td>A+</td>
+                </tr>
+            </table>
+        </div>
+       </section>
+       <section class="admin">
+        <h3>ADMINISTRATIVE SECTION</h3>
+            <div class="inputBlock">
+             <div >
+                <label>Student Adm No :</label>
+                <input type="text" placeholder="input admission number">
+             </div>
+             <div>
+                <label>Exam Year :</label>
+                <select>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    
+                </select>
+             </div>
+            </div>
+            <div>
+                <label>Course:</label><br>
+                <select>
+                    <option>Electrical Machines</option>
+                    <option>Computer aided electrical drawing</option>
+                    <option>Electrical Power generation</option>
+                    <option>Transmission and Distribution</option>
+                    <option>Basic Management skills</option>
+                    <option>Estimation and Specification</option>
+                    <option>Electrical energy utility and Management</option>
+                    <option>Electrical Motor Control</option>
+                    <option>Electrical Installation</option>
+                    <option>PLC and HDL</option>
+                </select>
+                <input type="text" placeholder="input student scors">
+            </div>
+            <div>
+                <input class="btn" type="button" value="SUBMIT">
+            </div>
+       </section>
+    </main>
+    <!-- footer -->
+    <footer>
+
+    </footer>
 </body>
 </html>

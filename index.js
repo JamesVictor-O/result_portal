@@ -1,9 +1,10 @@
 // collectting information from the admin section
 const studentAdmNo = document.querySelector('.studentAdmNo');
 const studentExamYear = document.querySelector('.studentExamYear')
-const studentCourse = document.querySelector('.course')
+const studentCourse = document.querySelector('.courseOfferd')
 const studentScors = document.querySelector('.scors')
 const submitButton = document.querySelector('.btn')
+let adminNo='1310211016'
 
 const studentDataBase = [
     {
@@ -68,12 +69,29 @@ const studentDataBase = [
 let storedStudentDatabase=localStorage.setItem('studentDataBase',JSON.stringify(studentDataBase))
 
 
-function CollectStudentScorse() {
+function CollectStudentScorse() { 
+    
     AdminSubmitResult()
-    let parsedDatabase = studentDataBase
-    let allGrades = document.querySelectorAll(".grade")
-    for (let i = 0; i)
-    console.log(allGrades)
+
+    let storedDatabase = localStorage.getItem("database");
+    let parsedDatabase = JSON.parse(storedDatabase)
+    let listOfCourse=""
+    for (let i = 0; i < 3; i++){
+        if (parsedDatabase[i].addmisionNo === adminNo) {
+            listOfCourse = parsedDatabase[i].courses
+        }
+    }
+     
+    let table = document.querySelector(".table");
+    let rows = table.getElementsByTagName('tr')
+    for (let i = 1; i < rows.length; i++){
+        courseCode = rows[i].querySelector('.course').textContent;
+        let gradeCell = rows[i].querySelector('.grade');
+        const Scors=listOfCourse[courseCode]
+        gradeCell.textContent=Scors
+        console.log(Scors)
+    }
+    
     
 }
 
@@ -98,9 +116,11 @@ function AdminSubmitResult() {
                         console.log("no")
                     }
                 }
-                // studentDataBase[i].courses[gradingCourse] = courseGrade;
                 console.log( studentDataBase[i])
                 
+            } else {
+                alert("there is no such student in our system")
+                localStorage.setItem('database', JSON.stringify(studentDataBase))
             }
         }
         let storedDatabase = localStorage.getItem("database");

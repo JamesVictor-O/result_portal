@@ -58,73 +58,73 @@
                 </tr>
                 <tr>
                     <td>II</td>
-                    <td>Electrical Machines</td>
+                    <td class="course">EMS101</td>
                     <td>100</td>
                     <td>50</td>
-                    <td>60</td>
+                    <td class="grade">60</td>
                 </tr>
                 <tr>
                     <td>II</td>
-                    <td>Computer aided electrical drawing</td>
+                    <td class="course">CED101</td>
                     <td>100</td>
                     <td>50</td>
-                    <td>60</td>
+                    <td class="grade">60</td>
                 </tr>
                 <tr>
                     <td>II</td>
-                    <td>Electrical Power generation</td>
+                    <td class="course">EPG101</td>
                     <td>100</td>
                     <td>50</td>
-                    <td>60</td>
+                    <td class="grade">60</td>
                 </tr>
                 <tr>
                     <td>II</td>
-                    <td>Transmission and Distribution</td>
+                    <td class="course">TDS101</td>
                     <td>100</td>
                     <td>50</td>
-                    <td>60</td>
+                    <td class="grade">60</td>
                 </tr>
                 <tr>
                     <td>II</td>
-                    <td>Basic Management skills</td>
+                    <td class="course">BMS112</td>
                     <td>100</td>
                     <td>50</td>
-                    <td>60</td>
+                    <td class="grade">60</td>
                 </tr>
                 <tr>
                     <td>III</td>
-                    <td>Estimation and Specification</td>
+                    <td class="course">ESS113</td>
                     <td>100</td>
                     <td>50</td>
-                    <td>60</td>
+                    <td class="grade">60</td>
                 </tr>
                 <tr>
                     <td>III</td>
-                    <td>Electrical energy utility and Management</td>
+                    <td class="course">EEM112</td>
                     <td>100</td>
                     <td>50</td>
-                    <td>60</td>
+                    <td class="grade">60</td>
                 </tr>
                 <tr>
                     <td>III</td>
-                    <td>Electrical Motor Control</td>
+                    <td class="course">EMS102</td>
                     <td>100</td>
                     <td>50</td>
-                    <td>60</td>
+                    <td class="grade">60</td>
                 </tr>
                 <tr>
                     <td>III</td>
-                    <td>Electrical Installation</td>
+                    <td class="course">EIS104</td>
                     <td>100</td>
                     <td>50</td>
-                    <td>60</td>
+                    <td class="grade">60</td>
                 </tr>
                 <tr>
                     <td>III</td>
-                    <td>PLC and HDL</td>
+                    <td class="course">PAH104</td>
                     <td>100</td>
                     <td>50</td>
-                    <td>60</td>
+                    <td class="grade">60</td>
                 </tr>
             </table>
 
@@ -179,34 +179,34 @@
             <div class="inputBlock">
              <div >
                 <label>Student Adm No :</label>
-                <input type="text" placeholder="input admission number">
+                <input type="text" placeholder="input admission number" class="studentAdmNo">
              </div>
              <div>
                 <label>Exam Year :</label>
-                <select>
-                    <option>2020</option>
-                    <option>2021</option>
-                    <option>2023</option>
-                    <option>2024</option>
+                <select class="studentExamYear">
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
                     
                 </select>
              </div>
             </div>
             <div>
                 <label>Course:</label><br>
-                <select>
-                    <option>Electrical Machines</option>
-                    <option>Computer aided electrical drawing</option>
-                    <option>Electrical Power generation</option>
-                    <option>Transmission and Distribution</option>
-                    <option>Basic Management skills</option>
-                    <option>Estimation and Specification</option>
-                    <option>Electrical energy utility and Management</option>
-                    <option>Electrical Motor Control</option>
-                    <option>Electrical Installation</option>
-                    <option>PLC and HDL</option>
+                <select class="courseOfferd">
+                    <option value="EMS101">Electrical Machines</option>
+                    <option value="CED101">Computer aided electrical drawing</option>
+                    <option value="EPG101">Electrical Power generation</option>
+                    <option value="TDS101">Transmission and Distribution</option>
+                    <option value="BMS112">Basic Management skills</option>
+                    <option value="ESS113">Estimation and Specification</option>
+                    <option value="EEM112">Electrical energy utility and Management</option>
+                    <option value="EMS102">Electrical Motor Control</option>
+                    <option value="EIS104">Electrical Installation</option>
+                    <option value="PAH104">PLC and HDL</option>
                 </select>
-                <input type="text" placeholder="input student scors">
+                <input type="text" placeholder="input student scors" class="scors">
             </div>
             <div>
                 <input class="btn" type="button" value="SUBMIT">
@@ -217,5 +217,6 @@
     <footer>
 
     </footer>
+    <script src="index.js"></script>
 </body>
 </html>

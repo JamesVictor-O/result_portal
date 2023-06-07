@@ -4,6 +4,8 @@ const studentExamYear = document.querySelector('.studentExamYear')
 const studentCourse = document.querySelector('.courseOfferd')
 const studentScors = document.querySelector('.scors')
 const submitButton = document.querySelector('.btn')
+const registrationButton = document.querySelector(".regBtn");
+
 let adminNo='1310211016'
 
 const studentDataBase = [
@@ -115,10 +117,35 @@ function DisplayResult() {
         let courseCode = rows[i].querySelector('.course').textContent;
         let gradeCell = rows[i].querySelector('.grade')
         const Scors = listOfCourse[courseCode]
-        console.log(Scors)
-        gradeCell.textContent=Scors
+        gradeCell.textContent = Scors
+         localStorage.setItem('database', JSON.stringify(studentDataBase))
         
     }
-    console.log(rows)
 }
 DisplayResult
+
+function RegisterStudent() {
+    let studentData = localStorage.getItem("database");
+    let retrivedStudentData = JSON.parse(studentData)
+    registrationButton.addEventListener("click", () => {
+        let studntName=document.querySelector('.regName').value
+        let studntRegno=document.querySelector('.regNo').value
+        let studntDateOfbirth=document.querySelector('.regDateofBirth').value
+        let studntProgram=document.querySelector('.regProgram').value
+        let studntBatch = document.querySelector('.regBatch').value
+        
+        let studentInfo={
+
+        }
+        studentInfo.name = studntName;
+        studentInfo.addmisionNo = studntRegno;
+        studentInfo.dateOfBirth = studntDateOfbirth;
+        studentInfo.program = studntProgram;
+        studentInfo.batch = studntBatch;
+
+        studentDataBase.push(studentInfo)
+      console.log(retrivedStudentData)
+    })
+}
+
+RegisterStudent()

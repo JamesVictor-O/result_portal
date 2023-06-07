@@ -69,35 +69,6 @@ const studentDataBase = [
 let storedStudentDatabase=localStorage.setItem('studentDataBase',JSON.stringify(studentDataBase))
 
 
-function CollectStudentScorse() { 
-    
-    AdminSubmitResult()
-
-    let storedDatabase = localStorage.getItem("database");
-    let parsedDatabase = JSON.parse(storedDatabase)
-    let listOfCourse=""
-    for (let i = 0; i < 3; i++){
-        if (parsedDatabase[i].addmisionNo === adminNo) {
-            listOfCourse = parsedDatabase[i].courses
-        }
-    }
-     
-    let table = document.querySelector(".table");
-    let rows = table.getElementsByTagName('tr')
-    for (let i = 1; i < rows.length; i++){
-        courseCode = rows[i].querySelector('.course').textContent;
-        let gradeCell = rows[i].querySelector('.grade');
-        const Scors=listOfCourse[courseCode]
-        gradeCell.textContent=Scors
-        console.log(Scors)
-    }
-    
-    
-}
-
-CollectStudentScorse()
-
-
 function AdminSubmitResult() {
     submitButton.addEventListener('click', () => {
         let studentAdmissionNumber = studentAdmNo.value;
@@ -116,15 +87,38 @@ function AdminSubmitResult() {
                         console.log("no")
                     }
                 }
-                console.log( studentDataBase[i])
-                
-            } else {
-                alert("there is no such student in our system")
-                localStorage.setItem('database', JSON.stringify(studentDataBase))
-            }
+            } 
         }
-        let storedDatabase = localStorage.getItem("database");
-        parsedDatabase = JSON.parse(storedDatabase)
-        console.log(parsedDatabase)
+        DisplayResult()
+        // let storedDatabase = localStorage.getItem("database");
+        // parsedDatabase = JSON.parse(storedDatabase)
+        // console.log(parsedDatabase)
     })
 }
+AdminSubmitResult()
+
+
+function DisplayResult() {
+    let studentData = localStorage.getItem("database");
+    let retrivedStudentData = JSON.parse(studentData)
+    let listOfCourse = "";
+    // geting the list of course for a particular student you logged in
+    for (let i = 0; i < 3; i++){
+        if (retrivedStudentData[i].addmisionNo === adminNo) {
+            listOfCourse=retrivedStudentData[i].courses
+        }
+    }
+
+    let table = document.querySelector(".table")
+    let rows = table.getElementsByTagName("tr");
+    for (let i = 1; i < rows.length; i++){
+        let courseCode = rows[i].querySelector('.course').textContent;
+        let gradeCell = rows[i].querySelector('.grade')
+        const Scors = listOfCourse[courseCode]
+        console.log(Scors)
+        gradeCell.textContent=Scors
+        
+    }
+    console.log(rows)
+}
+DisplayResult

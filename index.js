@@ -66,12 +66,21 @@ const studentDataBase = [
             PAH104:""
         }
     },
+    {
+        name: "musa Ahamad baba",
+        addmisionNo: "1310211019",
+        dateOfBirth: "24-05-1995",
+        program: "Diploma in Eletrical Enginneering",
+        batch: " Dec 3. 2020/3rd",
+       
+    },
 ]
 
 let storedStudentDatabase=localStorage.setItem('studentDataBase',JSON.stringify(studentDataBase))
-
+let studentData = localStorage.getItem("database");
 
 function AdminSubmitResult() {
+    let retrivedStudentData = JSON.parse(studentData)
     submitButton.addEventListener('click', () => {
         let studentAdmissionNumber = studentAdmNo.value;
         let gradingCourse = studentCourse.value;
@@ -79,8 +88,8 @@ function AdminSubmitResult() {
         
         // itrating through the student record to search for the person whos is been graded
         for (let i = 0; i < studentDataBase.length; i++){
-            if (studentDataBase[i].addmisionNo === studentAdmissionNumber) {
-                let courseList=studentDataBase[i].courses
+            if (retrivedStudentData[i].addmisionNo === studentAdmissionNumber) {
+                let courseList=retrivedStudentData[i].courses
                 for (let i = 0; i < 10; i++){
                     if (courseList.hasOwnProperty(gradingCourse)) {
                         courseList[gradingCourse] = courseGrade
@@ -95,13 +104,13 @@ function AdminSubmitResult() {
         // let storedDatabase = localStorage.getItem("database");
         // parsedDatabase = JSON.parse(storedDatabase)
         // console.log(parsedDatabase)
+        console.log(retrivedStudentData)
     })
 }
 AdminSubmitResult()
 
 
 function DisplayResult() {
-    let studentData = localStorage.getItem("database");
     let retrivedStudentData = JSON.parse(studentData)
     let listOfCourse = "";
     // geting the list of course for a particular student you logged in
@@ -125,7 +134,6 @@ function DisplayResult() {
 DisplayResult
 
 function RegisterStudent() {
-    let studentData = localStorage.getItem("database");
     let retrivedStudentData = JSON.parse(studentData)
     registrationButton.addEventListener("click", () => {
         let studntName=document.querySelector('.regName').value
@@ -142,10 +150,40 @@ function RegisterStudent() {
         studentInfo.dateOfBirth = studntDateOfbirth;
         studentInfo.program = studntProgram;
         studentInfo.batch = studntBatch;
-
-        studentDataBase.push(studentInfo)
-      console.log(retrivedStudentData)
+        retrivedStudentData.push(studentInfo)
+        localStorage.setItem('database', JSON.stringify(studentDataBase))
     })
 }
 
 RegisterStudent()
+
+function CourseRegistration() {
+    let courses = {
+      
+  }
+    let selectedCourses = document.querySelectorAll(".selectedCourse")
+    selectedCourses.forEach(courseSelected => {
+        courseSelected.addEventListener("click", () => {
+            const courseCode = courseSelected.parentElement.previousSibling.nextSibling.nextSibling.nextSibling.innerHTML;
+            courses[courseCode] = ""
+            console.log(courses)
+        })
+    })
+    SubmitCouresRegisterd(courses)
+}
+
+CourseRegistration()
+
+function SubmitCouresRegisterd(cour) {
+    
+    let submitButton = document.querySelector(".courseBtn");
+    submitButton.addEventListener("click", () => {
+        for (let i = 0; i < retrivedStudentData.length; i++){
+            if (retrivedStudentData[i].addmisionNo === '1310211019') {
+                retrivedStudentData[i].courses = cour;
+            }
+        }
+        console.log(retrivedStudentData)
+    })
+    localStorage.setItem('database', JSON.stringify(studentDataBase))
+}

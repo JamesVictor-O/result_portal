@@ -7,31 +7,106 @@ body{
 /* header */
 header{
     box-shadow: 5px 3px  0px rgb(228, 217, 217);
-    height: 80px;
+    height: 50px;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-top: 20px;
+    justify-content: space-between;
+    padding-right: 20px;
+    padding-bottom: 10px;
 
 }
-.institute{
-    position: relative;
-    left: 10%;
-    top: -14%;
-}
-.institute span{
-    font-size: 16px;
-}
-/* student */
-.student{
-    
-}
 header img{
-    width: 50px;
+    width: 20px;
     background: blue;
     border-radius: 30px;
     padding: 20px;
     margin-left: 40px;
+}
+
+.logo{
+    display: flex;
+}
+.institute{
+    font-size: 11px;
+    margin-left: 8px;
+}
+.institute h2{
+    font-size: 18px;
+    font-weight: 700;
+}
+.institute span{
+    font-size: 14px;
+} 
+/* navigation */
+.navbar ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.navbar ul li{
+    margin-right: 20px;
+    list-style: none;
+    padding: 7px;
+    font-size: 17px;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: sans-serif;
+    border-bottom: 1px solid rgb(37, 36, 36);
+}
+.navbar ul li:hover{
+    border-bottom: 3px solid rgb(241, 31, 24);
+}
+.moreOthers{
+    display: none;
+    position: relative;
+}
+.navbar ul li:hover .moreOthers{
+    display: block;
+    position: absolute; 
+    margin-top: 15px;
+    margin-left: -15px;  
+}
+.navbar ul li:hover .moreOthers ul{
+    display: block;
+    margin: 10px;
+}
+.navbar ul li:hover .moreOthers ul li{
+    width: 150px;
+    padding: 10px;
+    border-bottom: 1px dotted black;
+    text-align: left;
+    border-radius: 0;
+
+}
+
+
+/* login and logout */
+.log{
+    margin-right: 30px;
+}
+.log button{
+    border: none;
+    padding: 8px;
+    margin-right: 20px;
+    border-radius: 5px;
+    background-color: rgb(245, 67, 67);
+    color: white;
+
+}
+
+/* main */
+main{
+}
+/* navigation */
+.navigation{
+    background: red;
+}
+/* student */
+.student{
+    display: none;
 }
 .studentdetails{
     margin-top: 20px;
@@ -85,6 +160,10 @@ table td{
     background: rgb(192, 250, 250);
     height: 80vh;
 }
+.content{
+    display: flex;
+    flex-direction: row;
+}
 .admin h3{
     font-size: 24px;
     position: relative;
@@ -114,4 +193,69 @@ table td{
      color: white;
      border: 1px solid white;
      padding: 5px;
+}
+/* student registration */
+.registerStudent{
+    margin-left: 80px;
+    
+}
+.regDetails div{
+    margin-top: 10px;
+}
+.regDetails input{
+     background:;
+     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+     margin-left: 10px;
+     
+}
+.regBtn button{
+    border: none;
+    padding: 7px;
+    color: white;
+    background: rgb(247, 56, 56);
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.success{
+    border: 1px solid green;
+}
+
+/* course registration */
+.studentCourseReg{
+    margin-top: 40px;
+    margin-left: 50px;
+}
+.composery{
+    border-collapse: collapse;
+    width: 58.3%;
+    margin-top: 10px;
+}
+.elective{
+    border-collapse: collapse;
+    width: 58.3%;
+    margin-top: 10px;
+}
+.summary{
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 30%;
+}
+.summary div{
+    margin-top: 10px;
+}
+.summary div label{
+    font-weight: 600;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+.courseBtn{
+    margin-top: 20px;
+}
+.courseBtn button{
+    font-family: sans-serif;
+    background-color: rgb(235, 33, 6);
+    border: none;
+    padding: 7px;
+    border-radius: 7px;
 }

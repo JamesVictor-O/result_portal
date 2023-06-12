@@ -17,12 +17,12 @@ const studentDataBase = [
         batch: " Dec 3. 2020/3rd",
         courses: {
             EMS101: "",
-            CED101: "",
+            CED101: "68",
             EPG101: "",
-            TDS101: "",
+            TDS101: "56",
             BMS112: "",
             ESS113: "",
-            EEM112: "",
+            EEM112: "40",
             EMS102: "",
             EIS104: "",
             PAH104:""
@@ -31,15 +31,15 @@ const studentDataBase = [
     {
         name: "musa ahamed baba",
         addmisionNo: "1310211017",
-        dateOfBirth: "24-05-1995",
-        program: "Diploma in Eletrical Enginneering",
-        batch: " Dec 3. 2020/3rd",
+        dateOfBirth: "24-04-2000",
+        program: "Diploma in computer Enginneering",
+        batch: " jan 5. 2020/3rd",
         courses: {
             EMS101: "",
-            CED101: "",
+            CED101: "60",
             EPG101: "",
             TDS101: "",
-            BMS112: "",
+            BMS112: "45",
             ESS113: "",
             EEM112: "",
             EMS102: "",
@@ -48,11 +48,11 @@ const studentDataBase = [
         }
     },
     {
-        name: "musa Ahamad baba",
+        name: "Chigozi samule",
         addmisionNo: "1310211018",
-        dateOfBirth: "24-05-1995",
-        program: "Diploma in Eletrical Enginneering",
-        batch: " Dec 3. 2020/3rd",
+        dateOfBirth: "24-05-2017",
+        program: "Diploma in Mechanical Enginneering",
+        batch: " oct 3. 2020/3rd",
         courses: {
             EMS101: "",
             CED101: "",
@@ -76,18 +76,19 @@ const studentDataBase = [
     },
 ]
 
-let storedStudentDatabase=localStorage.setItem('studentDataBase',JSON.stringify(studentDataBase))
-let studentData = localStorage.getItem("database");
+localStorage.setItem('database',JSON.stringify(studentDataBase))
 
-function AdminSubmitResult() {
+function AdminGradingStudent() {
+    let studentData = localStorage.getItem("database");
     let retrivedStudentData = JSON.parse(studentData)
     submitButton.addEventListener('click', () => {
         let studentAdmissionNumber = studentAdmNo.value;
         let gradingCourse = studentCourse.value;
         let courseGrade = studentScors.value;
         
-        // itrating through the student record to search for the person whos is been graded
-        for (let i = 0; i < studentDataBase.length; i++){
+        // itrating through the student record to search for the person who is been graded
+
+        for (let i = 0; i < retrivedStudentData.length; i++){
             if (retrivedStudentData[i].addmisionNo === studentAdmissionNumber) {
                 let courseList=retrivedStudentData[i].courses
                 for (let i = 0; i < 10; i++){
@@ -95,29 +96,40 @@ function AdminSubmitResult() {
                         courseList[gradingCourse] = courseGrade
                         localStorage.setItem('database', JSON.stringify(studentDataBase))
                     } else {
-                        console.log("no")
                     }
                 }
             } 
         }
-        DisplayResult()
-        // let storedDatabase = localStorage.getItem("database");
-        // parsedDatabase = JSON.parse(storedDatabase)
-        // console.log(parsedDatabase)
         console.log(retrivedStudentData)
+        DisplayResult()
+         
     })
 }
-AdminSubmitResult()
+AdminGradingStudent()
 
 
 function DisplayResult() {
+    let studentData = localStorage.getItem("database");
     let retrivedStudentData = JSON.parse(studentData)
-    let listOfCourse = "";
+    const studentName = document.querySelector(".studentName")
+    const studentAdmissonNumber = document.querySelector(".studentAdmissionNumber")
+    const studentDate = document.querySelector(".studentDate")
+    const studentProgram = document.querySelector(".studentProgram")
+    const studentBatch = document.querySelector(".studentBatch")
+    let listOfCourse;
     // geting the list of course for a particular student you logged in
-    for (let i = 0; i < 3; i++){
+    for (let i = 0; i < 4; i++){
         if (retrivedStudentData[i].addmisionNo === adminNo) {
-            listOfCourse=retrivedStudentData[i].courses
-        }
+            studentName.innerHTML=retrivedStudentData[i].name
+            studentDate.innerHTML=retrivedStudentData[i].dateOfBirth
+            studentProgram.innerHTML = retrivedStudentData[i].program
+            studentAdmissonNumber.innerHTML=retrivedStudentData[i].addmisionNo
+
+            // course list for the current admission number
+            listOfCourse = retrivedStudentData[i].courses;
+            localStorage.setItem('database', JSON.stringify(studentDataBase))
+
+         }
     }
 
     let table = document.querySelector(".table")
@@ -128,12 +140,13 @@ function DisplayResult() {
         const Scors = listOfCourse[courseCode]
         gradeCell.textContent = Scors
          localStorage.setItem('database', JSON.stringify(studentDataBase))
-        
     }
+    console.log(listOfCourse)
 }
-DisplayResult
+DisplayResult()
 
 function RegisterStudent() {
+    let studentData = localStorage.getItem("database");
     let retrivedStudentData = JSON.parse(studentData)
     registrationButton.addEventListener("click", () => {
         let studntName=document.querySelector('.regName').value
@@ -154,19 +167,29 @@ function RegisterStudent() {
         localStorage.setItem('database', JSON.stringify(studentDataBase))
     })
 }
-
 RegisterStudent()
-
+            
 function CourseRegistration() {
-    let courses = {
-      
-  }
+    let totalUnit=0;
+    let courses = {}
     let selectedCourses = document.querySelectorAll(".selectedCourse")
     selectedCourses.forEach(courseSelected => {
-        courseSelected.addEventListener("click", () => {
+        courseSelected.addEventListener("change", (e) => {
             const courseCode = courseSelected.parentElement.previousSibling.nextSibling.nextSibling.nextSibling.innerHTML;
-            courses[courseCode] = ""
-            console.log(courses)
+            courses[courseCode] = "";
+            const units = courseSelected.parentElement.previousSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.innerHTML
+            const unitTotal=document.querySelector(".totalUnit")
+            let courseUnite= parseFloat(units)
+            if(e.target.checked){
+                totalUnit += courseUnite
+                unitTotal.textContent = totalUnit;
+                const courseCode = courseSelected.parentElement.previousSibling.nextSibling.nextSibling.nextSibling.innerHTML;
+                 courses[courseCode] = ""
+            } else{
+                totalUnit -= courseUnite
+                unitTotal.textContent = totalUnit;
+                delete courses[courseCode]
+            }
         })
     })
     SubmitCouresRegisterd(courses)
@@ -175,15 +198,22 @@ function CourseRegistration() {
 CourseRegistration()
 
 function SubmitCouresRegisterd(cour) {
-    
+    let studentData = localStorage.getItem("database");
+    let retrivedStudentData = JSON.parse(studentData)
     let submitButton = document.querySelector(".courseBtn");
+    let isFound=false
     submitButton.addEventListener("click", () => {
         for (let i = 0; i < retrivedStudentData.length; i++){
             if (retrivedStudentData[i].addmisionNo === '1310211019') {
                 retrivedStudentData[i].courses = cour;
-            }
+                isFound = true
+                localStorage.setItem('database', JSON.stringify(studentDataBase))
+            } 
+        }
+        if (!isFound) {
+            console.log("no identity found")
         }
         console.log(retrivedStudentData)
     })
-    localStorage.setItem('database', JSON.stringify(studentDataBase))
+    // localStorage.setItem('database', JSON.stringify(studentDataBase))
 }

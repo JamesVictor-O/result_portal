@@ -195,12 +195,26 @@ DisplayDetails()
 // Course registration
 function CourseRegistration(){
   const selectCourse = document.querySelectorAll(".selectCourse");
-  let myCourse={}
+  let myCourse = {}
+  let currentUnits = 0;
   selectCourse.forEach(course => {
     course.addEventListener("change", () => {
-      let courseCode = course.parentElement.nextElementSibling;
-      
-      console.log(courseCode)
+      let courseCode = course.parentElement.nextElementSibling.innerHTML;
+      const units = course.parentElement.nextElementSibling.nextElementSibling.innerHTML;
+      const unitTotal = document.querySelector(".current");
+      const numberOfCourses=document.querySelector(".applidCourses")
+      let courseUnite = parseFloat(units)
+      if (course.checked) {
+        myCourse[courseCode] = ""
+        currentUnits += courseUnite;
+        unitTotal.textContent = currentUnits;
+        numberOfCourses.innerHTML=Object.keys(myCourse).length
+      } else {
+        currentUnits -= courseUnite
+        unitTotal.textContent = currentUnits;
+        delete myCourse[courseCode]
+      }
+      console.log(Object.keys(myCourse))
     })
   })
 }

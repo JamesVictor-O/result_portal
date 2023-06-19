@@ -512,6 +512,21 @@ header{
     text-align: center;
     font-size: 13px;
 }
+
+.couseRegBtn{
+    margin-top: 10px;
+}
+.couseRegBtn button{
+    border: none;
+    background-color: rgb(226, 59, 59);
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.couseRegBtn button:hover{
+    background-color: rgb(156, 9, 9);
+}
 /* hostel registration */
 .hostel{
     display: none;

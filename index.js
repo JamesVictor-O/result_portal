@@ -1,20 +1,15 @@
-// collectting information from the admin section
-const studentAdmNo = document.querySelector('.studentAdmNo');
-const studentExamYear = document.querySelector('.studentExamYear')
-const studentCourse = document.querySelector('.courseOfferd')
-const studentScors = document.querySelector('.scors')
-const submitButton = document.querySelector('.btn')
-const registrationButton = document.querySelector(".regBtn");
-
-let adminNo='1310211016'
+const admissionNumber= "1310211018"
+// student database
 
 const studentDataBase = [
     {
         name: "james victor ochula",
+        department:"Electrical",
         addmisionNo: "1310211016",
         dateOfBirth: "24-05-1995",
+        image:"assets/profile1.png",
         program: "Diploma in Eletrical Enginneering",
-        batch: " Dec 3. 2020/3rd",
+        seasion: " Dec 3. 2020/3rd",
         courses: {
             EMS101: "",
             CED101: "68",
@@ -30,10 +25,13 @@ const studentDataBase = [
     },
     {
         name: "musa ahamed baba",
+        department:"statistics",
         addmisionNo: "1310211017",
+        image:"assets/profile2.png",
         dateOfBirth: "24-04-2000",
-        program: "Diploma in computer Enginneering",
-        batch: " jan 5. 2020/3rd",
+        department:"Statistics",
+        program: "Bachelor of Science in Statistics",
+        seasion: " jan 5. 2020/3rd",
         courses: {
             EMS101: "",
             CED101: "60",
@@ -50,9 +48,11 @@ const studentDataBase = [
     {
         name: "Chigozi samule",
         addmisionNo: "1310211018",
+        department:"Physics",
+        image:"assets/profile3.png",
         dateOfBirth: "24-05-2017",
-        program: "Diploma in Mechanical Enginneering",
-        batch: " oct 3. 2020/3rd",
+        program: "Bachelor of Science in Physics",
+        seasion: " oct 3. 2020/3rd",
         courses: {
             EMS101: "",
             CED101: "",
@@ -76,144 +76,132 @@ const studentDataBase = [
     },
 ]
 
-localStorage.setItem('database',JSON.stringify(studentDataBase))
+// handling page navigation
 
-function AdminGradingStudent() {
-    let studentData = localStorage.getItem("database");
-    let retrivedStudentData = JSON.parse(studentData)
-    submitButton.addEventListener('click', () => {
-        let studentAdmissionNumber = studentAdmNo.value;
-        let gradingCourse = studentCourse.value;
-        let courseGrade = studentScors.value;
-        
-        // itrating through the student record to search for the person who is been graded
+function HandlePageNavigation(pagenaveBar, page1, page2, page3, page4, dName) {
+  let navigationDisplay=document.querySelector(".navigationDis")
+    pagenaveBar.addEventListener("click", () => {
+          page1.style.display = "block";
+          page2.style.display = "none";
+          page3.style.display = "none";
+          page4.style.display = "none";
+         navigationDisplay.textContent=dName
+  })
+}
 
-        for (let i = 0; i < retrivedStudentData.length; i++){
-            if (retrivedStudentData[i].addmisionNo === studentAdmissionNumber) {
-                let courseList=retrivedStudentData[i].courses
-                for (let i = 0; i < 10; i++){
-                    if (courseList.hasOwnProperty(gradingCourse)) {
-                        courseList[gradingCourse] = courseGrade
-                        localStorage.setItem('database', JSON.stringify(studentDataBase))
-                    } else {
-                    }
-                }
-            } 
+function PageNavigation() {
+    const dashBorad = document.querySelector(".dashboard");
+    const profile = document.querySelector(".profile");
+    const result = document.querySelector(".result");
+    const CourseRegistration = document.querySelector(".courseRegistration");
+
+    // navigation buttons
+    const dashboardBtn = document.querySelector(".dashBtn")
+    const profileBtn = document.querySelector(".proBtn")
+    const resultBtn = document.querySelector(".resuBtn")
+    const registrationBtn = document.querySelector(".regisBtn")
+    const paymentBtn = document.querySelector(".paymBtn")
+    const securityBtn = document.querySelector(".secuBtn")
+    const loginBtn = document.querySelector(".logBtn")
+    
+    HandlePageNavigation(dashboardBtn,dashBorad,profile,result,CourseRegistration, "Dashboard")
+    HandlePageNavigation(profileBtn,profile, dashBorad, result,CourseRegistration, "Profile")
+    HandlePageNavigation(resultBtn,result, dashBorad, profile,CourseRegistration, "Result")
+    HandlePageNavigation(registrationBtn, CourseRegistration, dashBorad, result, profile, "Registration")
+  
+  // profile navigation
+
+  function ProfilNavigation() {
+    let allCheckboxes = document.querySelectorAll(".check");
+    allCheckboxes.forEach(checkboxes => {
+      checkboxes.addEventListener("change", () => {
+        if (checkboxes.checked) {
+          allCheckboxes.forEach(others => {
+            if (others !== checkboxes) {
+               others.checked = false
+             }
+           })
         }
-        console.log(retrivedStudentData)
-        DisplayResult()
-         
-    })
-}
-AdminGradingStudent()
-
-
-function DisplayResult() {
-    let studentData = localStorage.getItem("database");
-    let retrivedStudentData = JSON.parse(studentData)
-    const studentName = document.querySelector(".studentName")
-    const studentAdmissonNumber = document.querySelector(".studentAdmissionNumber")
-    const studentDate = document.querySelector(".studentDate")
-    const studentProgram = document.querySelector(".studentProgram")
-    const studentBatch = document.querySelector(".studentBatch")
-    let listOfCourse;
-    // geting the list of course for a particular student you logged in
-    for (let i = 0; i < 4; i++){
-        if (retrivedStudentData[i].addmisionNo === adminNo) {
-            studentName.innerHTML=retrivedStudentData[i].name
-            studentDate.innerHTML=retrivedStudentData[i].dateOfBirth
-            studentProgram.innerHTML = retrivedStudentData[i].program
-            studentAdmissonNumber.innerHTML=retrivedStudentData[i].addmisionNo
-
-            // course list for the current admission number
-            listOfCourse = retrivedStudentData[i].courses;
-            localStorage.setItem('database', JSON.stringify(studentDataBase))
-
-         }
-    }
-
-    let table = document.querySelector(".table")
-    let rows = table.getElementsByTagName("tr");
-    for (let i = 1; i < rows.length; i++){
-        let courseCode = rows[i].querySelector('.course').textContent;
-        let gradeCell = rows[i].querySelector('.grade')
-        const Scors = listOfCourse[courseCode]
-        gradeCell.textContent = Scors
-         localStorage.setItem('database', JSON.stringify(studentDataBase))
-    }
-    console.log(listOfCourse)
-}
-DisplayResult()
-
-function RegisterStudent() {
-    let studentData = localStorage.getItem("database");
-    let retrivedStudentData = JSON.parse(studentData)
-    registrationButton.addEventListener("click", () => {
-        let studntName=document.querySelector('.regName').value
-        let studntRegno=document.querySelector('.regNo').value
-        let studntDateOfbirth=document.querySelector('.regDateofBirth').value
-        let studntProgram=document.querySelector('.regProgram').value
-        let studntBatch = document.querySelector('.regBatch').value
-        
-        let studentInfo={
-
-        }
-        studentInfo.name = studntName;
-        studentInfo.addmisionNo = studntRegno;
-        studentInfo.dateOfBirth = studntDateOfbirth;
-        studentInfo.program = studntProgram;
-        studentInfo.batch = studntBatch;
-        retrivedStudentData.push(studentInfo)
-        localStorage.setItem('database', JSON.stringify(studentDataBase))
-    })
-}
-RegisterStudent()
+        for (let i = 0; i < allCheckboxes.length; i++){
+          if (allCheckboxes[i].checked) {
+            const elment = allCheckboxes[i].value
+            document.querySelector("." + elment).style.display ="flex";
+          } else if (!allCheckboxes[i].checked) {
+            let otherElments=allCheckboxes[i].value
+            document.querySelector('.'+ otherElments).style.display="none"
             
-function CourseRegistration() {
-    let totalUnit=0;
-    let courses = {}
-    let selectedCourses = document.querySelectorAll(".selectedCourse")
-    selectedCourses.forEach(courseSelected => {
-        courseSelected.addEventListener("change", (e) => {
-            const courseCode = courseSelected.parentElement.previousSibling.nextSibling.nextSibling.nextSibling.innerHTML;
-            courses[courseCode] = "";
-            const units = courseSelected.parentElement.previousSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.innerHTML
-            const unitTotal=document.querySelector(".totalUnit")
-            let courseUnite= parseFloat(units)
-            if(e.target.checked){
-                totalUnit += courseUnite
-                unitTotal.textContent = totalUnit;
-                const courseCode = courseSelected.parentElement.previousSibling.nextSibling.nextSibling.nextSibling.innerHTML;
-                 courses[courseCode] = ""
-            } else{
-                totalUnit -= courseUnite
-                unitTotal.textContent = totalUnit;
-                delete courses[courseCode]
+          }
+        }
+       }) 
+    })
+  }
+  ProfilNavigation()
+
+  // Registration Navigation
+
+  function RegistrationNavigation() {
+    let allCheckboxes = document.querySelectorAll(".CoursReg");
+    allCheckboxes.forEach(checkboxes => {
+      checkboxes.addEventListener("change", () => {
+        if (checkboxes.checked) {
+          allCheckboxes.forEach(others => {
+            if (others !== checkboxes) {
+              others.checked = false;
             }
-        })
+          })
+        }
+        for (let i = 0; i < allCheckboxes.length; i++){
+          if (allCheckboxes[i].checked) {
+            let element = allCheckboxes[i].value;
+            document.querySelector("." + element).style.display="block"
+          } else if (!allCheckboxes[i].checked) {
+            let otherElments = allCheckboxes[i].value;
+            document.querySelector("." + otherElments).style.display="none"
+          }
+        }
+      })
     })
-    SubmitCouresRegisterd(courses)
+  }
+RegistrationNavigation()
 }
+PageNavigation()
 
+// display information from student database
+
+function DisplayDetails() {
+  const onscreenAdmissionNum = document.querySelector(".admissionNum");
+  const onscreenName = document.querySelector(".onscreenName");
+  const onscreenPrograme = document.querySelector(".program");
+  const sideProfilePic = document.querySelector(".sideProfilePic")
+  const navigationName = document.querySelector(".navName");
+  const navigationProfilPicture = document.querySelector(".navProfilePic")
+  const level = document.querySelector(".level");
+  const department = document.querySelector(".department");
+
+  for (let i = 0; i < studentDataBase.length; i++){
+    if (studentDataBase[i].addmisionNo === admissionNumber) {
+      onscreenAdmissionNum.innerHTML = studentDataBase[i].addmisionNo;
+      onscreenName.innerHTML = studentDataBase[i].name;
+      onscreenPrograme.innerHTML = studentDataBase[i].program;
+      sideProfilePic.src = studentDataBase[i].image;
+      navigationName.innerHTML = studentDataBase[i].name;
+      navigationProfilPicture.src = studentDataBase[i].image;
+      department.textContent = studentDataBase[i].department;
+    }
+  }
+}
+DisplayDetails()
+
+// Course registration
+function CourseRegistration(){
+  const selectCourse = document.querySelectorAll(".selectCourse");
+  let myCourse={}
+  selectCourse.forEach(course => {
+    course.addEventListener("change", () => {
+      let courseCode = course.parentElement.nextElementSibling;
+      
+      console.log(courseCode)
+    })
+  })
+}
 CourseRegistration()
-
-function SubmitCouresRegisterd(cour) {
-    let studentData = localStorage.getItem("database");
-    let retrivedStudentData = JSON.parse(studentData)
-    let submitButton = document.querySelector(".courseBtn");
-    let isFound=false
-    submitButton.addEventListener("click", () => {
-        for (let i = 0; i < retrivedStudentData.length; i++){
-            if (retrivedStudentData[i].addmisionNo === '1310211019') {
-                retrivedStudentData[i].courses = cour;
-                isFound = true
-                localStorage.setItem('database', JSON.stringify(studentDataBase))
-            } 
-        }
-        if (!isFound) {
-            console.log("no identity found")
-        }
-        console.log(retrivedStudentData)
-    })
-    // localStorage.setItem('database', JSON.stringify(studentDataBase))
-}

@@ -8,473 +8,679 @@
     <title>StudentManagementSystem</title>
 </head>
 <body>
-    <!-- header -->
-    <header>
-       <!-- logo -->
-       <div class="logo">
-            <div>
-                <img src="assets/logo.png">
-                <h2></h2>
-           </div>
-            <div class="institute">
-                <h2>ouTrich <br><span>INSTITUE OF MANAGEMENT</span></h2>
-            </div>
-       </div>
-       <!-- navegation bar -->
-       <div class="navbar">
-          <nav>
-            <ul>
-                <li>Home</li>
+   <main>
+    <!-- navigation section -->
+      <section class="navigation">
+        <!-- profile picture -->
+         <div class="naviImage">
+            <img src="assets/profile.png" class="navProfilePic" width="80px">
+            <div class="navName">james victor</div>
+         </div>
+
+         <!-- navigation -->
+         <div class="navBars">
+             <div class="navs dashBtn">
+               <img src="assets/dashboardIcon.png" width="30px">
+                <li>Dashboard</li>
+             </div>
+             <div class="navs proBtn">
+               <img src="assets/profileIcon.png" width="30px">
                 <li>Profile</li>
-                <li>Courses</li>
-                <li>More <div class="moreOthers">
-                    <ul>
-                        <li>More 1</li>
-                        <li>More 2</li>
-                        <li>More 3</li>
-                    </ul>
-                </div></li>
-            </ul>
-          </nav>
-       </div>
+             </div>
+             <div class="navs resuBtn">
+               <img src="assets/resultIcon.png" width="30px">
+                <li>Result</li>
+             </div>
+             <div class="navs regisBtn">
+               <img src="assets/resultIcon.png" width="30px">
+                <li>Registration</li>
+             </div>
+             <div class="navs paymBtn">
+               <img src="assets/paymentIcon.png" width="30px">
+                <li>Payments</li>
+             </div>
+             <div class="navs secuBtn">
+               <img src="assets/securityIcon.png" width="30px">
+                <li>Security</li>
+             </div>
+             <div class="navs logBtn">
+               <img src="assets/loginIcon.png" width="30px">
+                <li>Logout</li>
+             </div>
 
-       <!-- login -->
-       <div class="log">
-           <button class="login">Login</button>
-           <button class="logout">Logout</button>
-       </div>
-    </header>
+         </div>
+      </section>
 
-    <!-- body -->
-    <main>
-        <!-- navigation page -->
-      <!-- <div class="navigation">
-          <h2>navigation</h2>
-      </div> -->
+      <!-- main body -->
+      <section class="mainBody">
+          <header>
+            <!-- school name and logo -->
+            <div class="header">
+               <div class="logo">
+                  <div>
+                      <img src="assets/logo.png" width="30px">
+                 </div>
+                  <div class="institute">
+                      <h2>ouTrich <br><span>INSTITUE OF MANAGEMENT</span></h2>
+                  </div>
+             </div>
+             <div class="headerSearch">
+                <input type="search" placeholder="Search">
+             </div>
+             <div class="headernot">
+               <div class="noti">
+                  <img src="assets/notificationIcon.png" width="20px">
+               </div>
+               
+               <div class="notiprofil">
+                  <img src="assets/profile.png" class="sideProfilePic" width="40px">
+               </div>
+               <!-- for moblile -->
+
+             <div class="mobileDetails">
+                  <div>James victor</div>
+             </div>
+             </div>
+            </div>
+
+            <div class="discription">
+               <div>
+                   <span class="navigationDis">Dashboard</span>
+               </div>
+               
+               <div class="dis2">
+                  <div class="subDis1">
+                     <label>Programe : <span class="program">Bachelor of Science in Statistics</span></label>
+                 </div>
+               </div>
+             </div>
+          </header>
+         
+          <!-- Dashboard -->
+         <section class="dashboard">
+            <!-- account holder information -->
+            <div class="brifInfo">
+                <div class="subbrif">
+                  <h2>Welcome, <span class="onscreenName"> victor Ochula.</span> <br><span class="admissionNum">1310211016</span></h2>
+                </div>
+
+                <div class="subbrif2">
+                  <div>
+                     <h5>Level</h5>
+                     <h2 class="level">200</h2>
+                  </div>
+                  <div>
+                     <h5>Department</h5>
+                     <h2 class="department">Physics</h2>
+                  </div>
+                  <div>
+                     <h5>Semester</h5>
+                     <h2>Second</h2>
+                  </div>
+                  <div>
+                     <h5>Seasion</h5>
+                     <h2>2022/2023</h2>
+                  </div>
+                </div>  
+            </div>
+
+            <!-- account holder cGpa -->
+            <div class="acadamicInfo">
+                <p>Acadamic Info</p>
+                <div class="infoma">
+                  <div>
+                     <h5>GPA</h5>
+                     <span>4.82</span>
+                     <img src="assets/ViewIcon.png" width="15px"> 
+                   </div>
+                   <div>
+                     <h5>CGPA</h5>
+                     <span>...</span>
+                     <img src="assets/ViewIcon.png" width="15px"> 
+                   </div>
+                   <div>
+                     <h5>Degree unit</h5>
+                     <span>42/148</span>
+                   </div>
+                </div>
+            </div>
+
+            <!-- account holder payment notificaton -->
+            <div class="acadamicNotification">
+               <h3>Pending Payment</h3>
+               <p>No fee has been generated for the <span>2020/2021</span> session, if you intend to register for the seasion please <a href="#">click here</a> to generate your invoice</p>
+            </div>
+         </section>
+
+         <!-- profile -->
+         
+         <section class="profile">
+            <div class="profileInfomation">
+               <div class="information">
+                  <input type="radio" checked value="personalInformation" class="check personal">
+                  <div>Personal Information</div>
+               </div>
+               <div class="information">
+                  <input type="radio" value="sponsors" class="check sponsor">
+                  <div>Sponsors Information</div>
+               </div>
+               <div class="information" >
+                  <input type="radio" value="aboutProgram" class="check aboutPro">
+                  <div>About Programme</div>
+               </div>
+            </div>
+
+            <!-- personal information -->
+            <div class="personalInformation">
+                  <div class="firstRow">
+                     <div>
+                        <h4>Title :</h4>
+                        <h2>Mr.</h2>
+                     </div>
+                     <div>
+                        <h4>First Name :</h4>
+                        <h2 class="infoAns">James</h2>
+                     </div>
+                     <div>
+                        <h4>Last Name :</h4>
+                        <h2 class="infoAns">Victor</h2>
+                     </div>
+                     <div>
+                        <h4>Middle Name :</h4>
+                        <h2 class="infoAns">Ochula</h2>
+                     </div>
+                     <div>
+                        <h4>Email Address :</h4>
+                        <h2 class="infoAns">victorjames408@gmial.com</h2>
+                     </div>
+                     <div>
+                        <h4>Phone Number :</h4>
+                        <h2 class="infoAns">08123465739</h2>
+                     </div>
+                     <div>
+                        <h4>Gender :</h4>
+                        <h2 class="infoAns">Male</h2>
+                     </div>
+                     <div>
+                        <h4>Date Of Birth :</h4>
+                        <h2 class="infoAns">31st Dec 2004</h2>
+                     </div>
+                </div>
 
 
-      <div class="pages">
-        <section class="student">
-                <!-- student details -->
-            <ul class="studentdetails">
-                <li class="detail">
-                    <label>STUDENT'S ADM NO.  :</label>
-                    <h3 class="studentAdmissionNumber">131021316</h3>
-                </li>
-                <li class="detail">
-                    <label>STUDENT'S NAME  :</label>
-                    <h3 class="studentName">JAMES VICTOR</h3>
-                </li>
-                <li class="detail">
-                    <label>DATE OF BIRTH  :</label>
-                    <h3 class="studentDate">24-05-1995</h3>
-                </li>
-                <li class="detail">
-                    <label>PROGRAM  :</label>
-                    <h3 class="studentProgram">Diploma in Eletrical Enginneering</h3>
-                </li>
-                <li class="detail">
-                    <label>BATCH/YEAR : </label>
-                    <h3 class="studentBatch"> Dec 3. 2020/3rd</h3>
-                </li>
-            </ul>
-            <!-- student result sheet -->
-            <div class="resultsheet">
-                <table class="table">
-                    <tr>
-                        <th>YEAR</th>
-                        <th>SUBJECT</th>
-                        <th>MAX MARKS</th>
-                        <th>MIN MARKS</th>
-                        <th>MARKS OBTAINED</th>
-                    </tr>
-                    <tr>
-                        <td>II</td>
-                        <td class="course">EMS101</td>
-                        <td>100</td>
-                        <td>50</td>
-                        <td class="grade">60</td>
-                    </tr>
-                    <tr>
-                        <td>II</td>
-                        <td class="course">CED101</td>
-                        <td>100</td>
-                        <td>50</td>
-                        <td class="grade">60</td>
-                    </tr>
-                    <tr>
-                        <td>II</td>
-                        <td class="course">EPG101</td>
-                        <td>100</td>
-                        <td>50</td>
-                        <td class="grade">60</td>
-                    </tr>
-                    <tr>
-                        <td>II</td>
-                        <td class="course">TDS101</td>
-                        <td>100</td>
-                        <td>50</td>
-                        <td class="grade">60</td>
-                    </tr>
-                    <tr>
-                        <td>II</td>
-                        <td class="course">BMS112</td>
-                        <td>100</td>
-                        <td>50</td>
-                        <td class="grade">60</td>
-                    </tr>
-                    <tr>
-                        <td>III</td>
-                        <td class="course">ESS113</td>
-                        <td>100</td>
-                        <td>50</td>
-                        <td class="grade">60</td>
-                    </tr>
-                    <tr>
-                        <td>III</td>
-                        <td class="course">EEM112</td>
-                        <td>100</td>
-                        <td>50</td>
-                        <td class="grade">60</td>
-                    </tr>
-                    <tr>
-                        <td>III</td>
-                        <td class="course">EMS102</td>
-                        <td>100</td>
-                        <td>50</td>
-                        <td class="grade">60</td>
-                    </tr>
-                    <tr>
-                        <td>III</td>
-                        <td class="course">EIS104</td>
-                        <td>100</td>
-                        <td>50</td>
-                        <td class="grade">60</td>
-                    </tr>
-                    <tr>
-                        <td>III</td>
-                        <td class="course">PAH104</td>
-                        <td>100</td>
-                        <td>50</td>
-                        <td class="grade">60</td>
-                    </tr>
-                </table>
+                <div class="secondRow">
+                     <div>
+                        <h4>Next of Kins :</h4>
+                        <h2 class="infoAns">Big John</h2>
+                     </div>
+                     <div>
+                        <h4>Local Goverment :</h4>
+                        <h2 class="infoAns">Bassa</h2>
+                     </div>
+                     <div>
+                        <h4>Nationality :</h4>
+                        <h2 class="infoAns">Nigeria</h2>
+                     </div>
+                     <div>
+                        <h4>State of Origin :</h4>
+                        <h2 class="infoAns">Benue</h2>
+                     </div>
+                     <div>
+                        <h4>Home Address :</h4>
+                        <h2 class="infoAns">No.5 Murtala Way opposite Mopole 9 kano west</h2>
+                     </div>
+                     <div>
+                        <h4>Marital Status :</h4>
+                        <h2 class="infoAns">Single</h2>
+                     </div>
+                     <div>
+                        <h4>Religion :</h4>
+                        <h2 class="infoAns">Christinity</h2>
+                     </div>
+                     <div>
+                        <h4>Hight :</h4>
+                        <h2 class="infoAns">6.7</h2>
+                     </div>
+                </div>
+            </div>
+             <!-- sponsors -->
+             <div class="sponsors"></div>
+            <!-- about Program -->
+            <div class="aboutProgram">
+                <div class="programAb">
+                     <div>
+                        <h4>Program :</h4>
+                        <h2>Bachelor Of Sicence In Physics</h2>
+                     </div>
+                     <div>
+                        <h4>Faculty :</h4>
+                        <h2 class="infoAns">Physical And Computing Science</h2>
+                     </div>
+                     <div>
+                        <h4>Department :</h4>
+                        <h2 class="infoAns">Physics Department</h2>
+                     </div>
+                     <div>
+                        <h4>Year Of Entry :</h4>
+                        <h2 class="infoAns">2020/2021</h2>
+                     </div>
+                     <div>
+                        <h4>Mode Of Entry :</h4>
+                        <h2 class="infoAns">UTMF</h2>
+                     </div>
+                     <div>
+                        <h4>Duration :</h4>
+                        <h2 class="infoAns">4 Year</h2>
+                     </div>
+                </div>
+            </div>
+         </section>
+       
+          <!-- result -->
 
-                <!-- result sumation -->
-                <table class="table2">
-                    <tr>
-                        <th>YEAR</th>
-                        <th>TOTAL OBTAINED MARKS</th>
-                        <th>MAX TOTAL MARKS</th>
-                        <th>RESULTS</th>
+         <section class="result">
+            <div class="moreDetails">
+               <div >
+                  <label>Seasion</label>
+                  <select>
+                     <option>2020/2021</option>
+                     <option>2021/2022</option>
+                     <option>2022/2023</option>
+                  </select>
+               </div>
+               <div>
+                  <label>Semester</label>
+                  <select>
+                     <option>First</option>
+                     <option>Second</option>
+                  </select>
+               </div>
+            </div>
+
+            <div class="resultNote">NOTE : for any complains on missing grade or in appopreate Grading <a href="$">click Here</a></div>
+
+
+            <div>
+               <table class="resulttable">
+                  <thead>
+                     <tr>
+                        <th>Course</th>
+                        <th>Course Code</th>
+                        <th>Status</th>
+                        <th>Unit</th>
+                        <th>Grade</th>
                     </tr>
-                    <tr>
-                        <td>I</td>
-                        <td>LATERAL ENTRY</td>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>Introduction to Chimistry</td>
+                        <td>Chm 101</td>
+                        <td>Composery</td>
+                        <td>3</td>
+                        <td>B</td>
+                     </tr>
+                     <tr>
+                        <td>Introduction to Biology</td>
+                        <td>Bio 101</td>
+                        <td>Composery</td>
+                        <td>4</td>
+                        <td>B</td>
+                     </tr>
+                     <tr>
+                        <td>Introduction to ChimistryII</td>
+                        <td>Chm 102</td>
+                        <td>Composery</td>
+                        <td>2</td>
+                        <td>C</td>
+                     </tr>
+                     <tr>
+                        <td>Introduction to BiologyII</td>
+                        <td>Bio 102</td>
+                        <td>Composery</td>
+                        <td>3</td>
+                        <td>B</td>
+                     </tr>
+                     <tr>
+                        <td>Introduction to Physics</td>
+                        <td>Phy 101</td>
+                        <td>Composery</td>
+                        <td>3</td>
+                        <td>A</td>
+                     </tr>
+                     <tr>
+                        <td>Introduction to PhysicsII</td>
+                        <td>Phy 102</td>
+                        <td>Composery</td>
+                        <td>3</td>
+                        <td>C</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+            <!-- result summarry table -->
+            <div>
+               <table class="summarytable">
+                  <thead>
+                     <tr>
+                        <th>UTS</th>
+                        <th>UTD</th>
+                        <th>GPTS</th>
+                        <th>GPTD</th>
+                        <th>GPLS</th>
+                        <th>GPATD</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>46</td>
+                        <td>46</td>
+                        <td>75</td>
+                        <td>75</td>
                         <td>-</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>II</td>
-                        <td>356</td>
-                        <td>500</td>
-                        <td>PASSED</td>
-                    </tr>
-                    <tr>
-                        <td>II</td>
-                        <td>356</td>
-                        <td>500</td>
-                        <td>PASSED</td>
-                    </tr>
+                        <td>1.62</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+            <!-- print button -->
+            <div class="resultBtn">
+               <button>
+                  Print Result
+               </button>
+            </div>
+         </section>
 
-                </table>
-                <!-- complement -->
+         <!-- course registration -->
 
-                <table class="table3">
-                    <tr>
-                        <th>RESULT</th>
-                        <th>TOTAL OBTAINED MARKS</th>
-                        <th>MAX MARKS</th>
-                        <th>GRADE</th>
-                    </tr>
-                    <tr>
-                        <td>COURSE COMPLETED</td>
-                        <td>700</td>
-                        <td>1000</td>
-                        <td>A+</td>
-                    </tr>
+         <section class="courseRegistration">
+            <!-- header -->
+            <div class="profileInfomation">
+               <div class="information">
+                  <input type="radio" checked value="registrationOfCourse" class="CoursReg">
+                  <div>Course Registration</div>
+               </div>
+               <div class="information">
+                  <input type="radio"  value="registerdCourse" class="CoursReg">
+                  <div>View Course</div>
+               </div>
+               <div class="information">
+                  <input type="radio" value="hostel" class="CoursReg">
+                  <div>Hostel Registration</div>
+               </div>
+            </div>
+            <!-- note  -->
+             <div class="registrationOfCourse">
+                  <div class="registrationNote">
+                     <h2>Note</h2>
+                     <div>
+                        <li>consult with your course codinator before you register your courses</li>
+                        <li>all course registration must be done before the deadline</li>
+                     </div>
+                  </div>
+
+                  <!-- other informations  -->
+                  <div class="otherInfos">
+                     <div>
+                        <h2>Deadline Date </h2>
+                        <h4>Jan 32 2021</h4>
+                     </div>
+                     <div>
+                        <h2>Maximum Total Units Allowed</h2>
+                        <h4>78</h4>
+                     </div>
+                     <div>
+                        <h2>Minimum Total Units Allowed</h2>
+                        <h4>78</h4>
+                     </div>
+                     <div>
+                        <h2>Current Unit</h2>
+                        <h4>0</h4>
+                     </div>
+                     <div>
+                        <h2>Coursed Applied</h2>
+                        <h4>0</h4>
+                     </div>
+                  </div>
+                  <!-- reister courses -->
+                  <div class="register">
+                     <table class="composery">
+                        <thead>
+                           <tr>
+                              <th>Course</th>
+                              <th>Course code</th>
+                              <th>Unit</th>
+                              <th>Semester</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td><input type="checkbox"class="selectCourse">Introduction to Chemistry</td>
+                              <td>Chm 101</td>
+                              <td>4</td>
+                              <td>First</td>
+                           </tr>
+                           <tr>
+                              <td><input type="checkbox" class="selectCourse">Electrical Machines</td>
+                              <td>EMS 101</td>
+                              <td>4</td>
+                              <td>Second</td>
+                           </tr>
+                           <tr>
+                              <td><input type="checkbox" class="selectCourse">Computer aided electrical drawing</td>
+                              <td>CED 101</td>
+                              <td>3</td>
+                              <td>Second</td>
+                           </tr>
+                           <tr>
+                              <td><input type="checkbox" class="selectCourse">Introduction to Chemistry</td>
+                              <td>Chm 101</td>
+                              <td>4</td>
+                              <td>First</td>
+                           </tr>
+                           <tr>
+                              <td><input type="checkbox" class="selectCourse">Introduction to Chemistry</td>
+                              <td>Chm 101</td>
+                              <td>4</td>
+                              <td>First</td>
+                           </tr>
+                           <tr>
+                              <td><input type="checkbox" class="selectCourse">Introduction to Chemistry</td>
+                              <td>Chm 101</td>
+                              <td>4</td>
+                              <td>First</td>
+                           </tr>
+                           <tr>
+                              <td><input type="checkbox" class="selectCourse">Introduction to Chemistry</td>
+                              <td>Chm 101</td>
+                              <td>4</td>
+                              <td>First</td>
+                           </tr>
+                           <tr>
+                              <td><input type="checkbox" class="selectCourse">Introduction to Chemistry</td>
+                              <td>Chm 101</td>
+                              <td>4</td>
+                              <td>First</td>
+                           </tr>
+                        </tbody>
+                     </table>
+
+                     <h2 class="electivHeading">Elective Courses</h2>
+                     <table class="elective">
+                        <thead>
+                           <tr>
+                              <th>Course</th>
+                              <th>Course code</th>
+                              <th>Unit</th>
+                              <th>Semester</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                              <tr>
+                                 <td><input type="checkbox">Introduction to Chemistry</td>
+                                 <td>Chm 101</td>
+                                 <td>4</td>
+                                 <td>First</td>
+                              </tr>
+                              <tr>
+                                 <td><input type="checkbox">Introduction to Chemistry</td>
+                                 <td>Chm 101</td>
+                                 <td>4</td>
+                                 <td>First</td>
+                              </tr>
+                              <tr>
+                                 <td><input type="checkbox">Introduction to Chemistry</td>
+                                 <td>Chm 101</td>
+                                 <td>4</td>
+                                 <td>First</td>
+                              </tr>
+                              <tr>
+                                 <td><input type="checkbox">Introduction to Chemistry</td>
+                                 <td>Chm 101</td>
+                                 <td>4</td>
+                                 <td>First</td>
+                              </tr>
+                              <tr>
+                                 <td><input type="checkbox">Introduction to Chemistry</td>
+                                 <td>Chm 101</td>
+                                 <td>4</td>
+                                 <td>First</td>
+                              </tr>
+                        </tbody>
+                     </table>
+                  </div>
+             </div>
+              <!-- registerd course -->
+            <div class="registerdCourse">
+               <div class="registeredInfos">
+                  <div>
+                     <h2>Total Unit</h2>
+                     <h4>0</h4>
+                  </div>
+                  <div>
+                     <h2>Registerd Course</h2>
+                     <h4>0</h4>
+                  </div>
+                  <div>
+                     <h2>Registration Status</h2>
+                     <h4>Pending</h4>
+                  </div>
+               </div>
+                <table class="registerd">
+                  <thead>
+                     <tr>
+                        <th>Course</th>
+                        <th>Course code</th>
+                        <th>Unit</th>
+                        <th>Semester</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>Introduction to Chemistry</td>
+                        <td>Chm 101</td>
+                        <td>4</td>
+                        <td>First</td>
+                     </tr>
+                     <tr>
+                        <td>Electrical Machines</td>
+                        <td>EMS 101</td>
+                        <td>4</td>
+                        <td>Second</td>
+                     </tr>
+                     <tr>
+                        <td>Computer aided electrical drawing</td>
+                        <td>CED 101</td>
+                        <td>3</td>
+                        <td>Second</td>
+                     </tr>
+                     <tr>
+                        <td>Introduction to Chemistry</td>
+                        <td>Chm 101</td>
+                        <td>4</td>
+                        <td>First</td>
+                     </tr>
+                     <tr>
+                        <td>Introduction to Chemistry</td>
+                        <td>Chm 101</td>
+                        <td>4</td>
+                        <td>First</td>
+                     </tr>
+                     <tr>
+                        <td>Introduction to Chemistry</td>
+                        <td>Chm 101</td>
+                        <td>4</td>
+                        <td>First</td>
+                     </tr>
+                     <tr>
+                        <td>Introduction to Chemistry</td>
+                        <td>Chm 101</td>
+                        <td>4</td>
+                        <td>First</td>
+                     </tr>
+                     <tr>
+                        <td>Introduction to Chemistry</td>
+                        <td>Chm 101</td>
+                        <td>4</td>
+                        <td>First</td>
+                     </tr>
+                  </tbody>
                 </table>
             </div>
-        </section>
 
-        <!-- administrative block -->
-
-        <section class="admin">
-            <h3>ADMINISTRATIVE SECTION</h3>
-            <!-- upload result -->
-            <div class="content">
-                <div class="uploadResult">
-                    <h2>Upload Result</h2>
-                    <div class="inputBlock">
-                        <div >
-                            <label>Student Adm No :</label>
-                            <input type="text" placeholder="input admission number" class="studentAdmNo">
-                        </div>
-                        <div>
-                            <label>Exam Year :</label>
-                            <select class="studentExamYear">
-                                <option value="2020">2020</option>
-                                <option value="2021">2021</option>
-                                <option value="2023">2023</option>
-                                <option value="2024">2024</option>
-                                
-                            </select>
-                        </div>
-                    </div>
-                    <div>
-                        <label>Course:</label><br>
-                        <select class="courseOfferd">
-                            <option value="EMS101">Electrical Machines</option>
-                            <option value="CED101">Computer aided electrical drawing</option>
-                            <option value="EPG101">Electrical Power generation</option>
-                            <option value="TDS101">Transmission and Distribution</option>
-                            <option value="BMS112">Basic Management skills</option>
-                            <option value="ESS113">Estimation and Specification</option>
-                            <option value="EEM112">Electrical energy utility and Management</option>
-                            <option value="EMS102">Electrical Motor Control</option>
-                            <option value="EIS104">Electrical Installation</option>
-                            <option value="PAH104">PLC and HDL</option>
+            <!-- hostel registrations -->
+              <div class="hostel">
+                  <h2>Hostel Application</h2>
+                  <div class="hostelinput">
+                     <div>
+                        <label>Name:</label><br>
+                        <input type="text" placeholder="input name">
+                     </div>
+                     <div>
+                        <label>Admission Number:</label>
+                        <input type="text" placeholder="admission number">
+                     </div>
+                     <div>
+                        <label>Course of Study:</label>
+                        <input type="text" placeholder="Course of Study">
+                     </div>
+                     <div>
+                        <label>Faculty:</label><br>
+                        <select>
+                              <option value="art">Faculty of Art</option>
+                              <option value="Female">faculty of science</option>
+                              <option value="Others">Faculty of education</option>
                         </select>
-                        <input type="text" placeholder="input student scors" class="scors">
-                    </div>
-                    <div>
-                        <input class="btn" type="button" value="SUBMIT">
-                    </div>
-                </div>
-                <!-- register student -->
-            <div class="registerStudent">
-                    <h2>Register Here</h2>
-                    <div class="regDetails">
-                        <div>
-                        <label>Student Name :</label>
-                        <input type="text" class="regName" placeholder="input student name">
-                        </div>
-                        
-                        <div>
-                            <label>Student RegNo:</label>
-                            <input type="text" class="regNo success" placeholder="input student registration number">
-                        </div>
-                        
-                        <div>
-                            <label>Date Of Birth:</label>
-                            <input type="text" class="regDateofBirth" placeholder="input student date of birth">
-                        </div>
-                        
-                        <div>
-                            <label>Program:</label>
-                            <input type="text" class="regProgram" placeholder="input program enrolled for">
-                        </div>
-                        
-                        <div>
-                            <label>Batch:</label>
-                        <input type="text" class="regBatch" placeholder="input student name">
-                        </div>
-        
-                        <!-- registration botton -->
-                    <div class="regBtn">
-                        <button>
-                            Register
-                        </button>
-                    </div>
-                </div>
-            </div>
-                
-        </section>
+                     </div>
+                     <div>
+                        <label>Gender:</label><br>
+                        <select>
+                              <option value="male">Male</option>
+                              <option value="Female">Female</option>
+                              <option value="Others">Others</option>
+                        </select>
+                     </div>
+                     
+                     <div>
+                        <label>Hostel of preferred choice:</label><br>
+                        <select>
+                              <option value="sankara">Sankara</option>
+                              <option value="dangote hostel">Dangote hostel</option>
+                              <option value="gregory block">Gregory hostel</option>
+                        </select>
+                     </div> 
+                     <!-- <div>
+                        <label>Have you Previously lived in a collage Hostel before? if yes how was your expirence:</label>
+                        <textarea></textarea>
+                     </div>  -->
+                  </div>
+                  <div class="ApplyBtn">
+                     <button>Apply Now</button>
+                  </div>
+             </div>
 
-        <!-- student course registration -->
-        <section class="studentCourseReg">
-            <h2>Course Registration</h2>
-            <div class="listOfcourse">
-            
-                <!-- composery courses -->
-
-                <table class="composery">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Course code</th>
-                            <th>Course title</th>
-                            <th>Credit unit</th>
-                            <th>Semester</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td><input class="selectedCourse" value="Electrical Machines" type="checkbox">Electrical Machines</td>
-                            <td>EMS101</td>
-                            <td>1</td>
-                            <td>first</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><input class="selectedCourse" value="Computer aided electrical drawing" type="checkbox">Computer aided electrical drawing</td>
-                            <td>CED101</td>
-                            <td>4</td>
-                            <td>first</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td><input class="selectedCourse" value="Electrical Power generation" type="checkbox">Electrical Power generation</td>
-                            <td>EPG101</td>
-                            <td>3</td>
-                            <td>second</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td><input class="selectedCourse" value="Transmission and Distribution" type="checkbox">Transmission and Distribution</td>
-                            <td>TDS101</td>
-                            <td>4</td>
-                            <td>first</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td><input class="selectedCourse" value="Basic Management skills" type="checkbox">Basic Management skills</td>
-                            <td>BMS112</td>
-                            <td>4</td>
-                            <td>second</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td><input class="selectedCourse" value="Estimation and Specification" type="checkbox"> Estimation and Specification</td>
-                            <td>ESS113</td>
-                            <td>3</td>
-                            <td>second</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td><input class="selectedCourse" value="Electrical energy utility and Management" type="checkbox">Electrical energy utility and Management</td>
-                            <td>EEM112</td>
-                            <td>2</td>
-                            <td>second</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td><input class="selectedCourse" value="Electrical Motor Control" type="checkbox">Electrical Motor Control</td>
-                            <td>EMS102</td>
-                            <td>4</td>
-                            <td>first</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td><input class="selectedCourse" value="Electrical Installation" type="checkbox">Electrical Installation</td>
-                            <td>EIS104</td>
-                            <td>3</td>
-                            <td>first</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td><input class="selectedCourse" value="PLC and HDL" type="checkbox">PLC and HDL</td>
-                            <td>PAH104</td>
-                            <td>4</td>
-                            <td>second</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <!-- elective -->
-
-                <table class="elective">
-                    <h4>Elective courses</h4>
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Course code</th>
-                            <th>Course title</th>
-                            <th>Credit unit</th>
-                            <th>Semester</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td><input class="selectedCourse" value="Electrical Machines" type="checkbox">Electrical Machines</td>
-                            <td>EMS101</td>
-                            <td>1</td>
-                            <td>first</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><input class="selectedCourse" value="Computer aided electrical drawing" type="checkbox">Computer aided electrical drawing</td>
-                            <td>CED101</td>
-                            <td>4</td>
-                            <td>first</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td><input class="selectedCourse" value="Electrical Power generation" type="checkbox">Electrical Power generation</td>
-                            <td>EPG101</td>
-                            <td>3</td>
-                            <td>second</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td><input class="selectedCourse" value="Transmission and Distribution" type="checkbox">Transmission and Distribution</td>
-                            <td>TDS101</td>
-                            <td>4</td>
-                            <td>first</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td><input class="selectedCourse" value="Basic Management skills" type="checkbox">Basic Management skills</td>
-                            <td>BMS112</td>
-                            <td>4</td>
-                            <td>second</td>
-                        </tr>
-            
-                    </tbody>
-                </table>
-            </div>
-            <!-- summary -->
-            <div class="summary">
-               <div>
-                <label for="Admin No">Admin No  : </label>
-                <span>1710311016</span>
-               </div>
-
-               <div>
-                <label for="Name">Name  : </label>
-                <span>James Victor Ochula</span>
-               </div>
-
-               <div>
-                <label for="Name">Minimum units : </label>
-                <span>45</span>
-               </div>
-
-               <div>
-                <label for="totalUnit">Maximum units  : </label>
-                <span>49</span>
-               </div>
-
-               <div>
-                <label for="totalUnit">Total units  : </label>
-                <span class="totalUnit">48</span>
-               </div>
-
-            </div>
-
-            <div class="courseBtn">
-               <button> submit </button>
-            </div>
-        </section>
-      </div>
-    </main>
-    <!-- footer -->
-    
-    <footer>
-
-    </footer>
+         </section>
+      </section>
+   </main>
     <script src="index.js"></script>
 </body>
 </html>

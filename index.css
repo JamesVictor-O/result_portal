@@ -425,6 +425,12 @@ header{
 .composery tbody tr:last-of-type{
     border-bottom: 4px solid rgb(240, 233, 233);
 }
+.status{
+    background-color: rgb(241, 70, 70);
+    padding: 10px;
+    color: white;
+    font-size: 30px;
+}
 /* elective courses */
 .elective{
     margin-top: 10px;

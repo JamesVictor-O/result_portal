@@ -1,4 +1,4 @@
-const admissionNumber= "1310211018"
+const admissionNumber= "1310211016"
 // student database
 
 const studentDataBase = [
@@ -10,18 +10,23 @@ const studentDataBase = [
         image:"assets/profile1.png",
         program: "Diploma in Eletrical Enginneering",
         seasion: " Dec 3. 2020/3rd",
-        courses: {
-            EMS101: "",
-            CED101: "68",
-            EPG101: "",
-            TDS101: "56",
-            BMS112: "",
-            ESS113: "",
-            EEM112: "40",
-            EMS102: "",
-            EIS104: "",
-            PAH104:""
-        }
+        courses: [
+            {name:"james", age:18, class:"ss2"},
+            {name:"james", age:18, class:"ss2"},
+            {name:"victor", age:18, class:"ss2"},
+          ]
+        // courses: {
+        //     EMS101: "",
+        //     CED101: "68",
+        //     EPG101: "",
+        //     TDS101: "56",
+        //     BMS112: "",
+        //     ESS113: "",
+        //     EEM112: "40",
+        //     EMS102: "",
+        //     EIS104: "",
+        //     PAH104:""
+        // }
     },
     {
         name: "musa ahamed baba",
@@ -195,27 +200,95 @@ DisplayDetails()
 // Course registration
 function CourseRegistration(){
   const selectCourse = document.querySelectorAll(".selectCourse");
-  let myCourse = {}
+  let myCourse=[]
   let currentUnits = 0;
+  let courseNumber = 0;
   selectCourse.forEach(course => {
-    course.addEventListener("change", () => {
-      let courseCode = course.parentElement.nextElementSibling.innerHTML;
-      const units = course.parentElement.nextElementSibling.nextElementSibling.innerHTML;
-      const unitTotal = document.querySelector(".current");
-      const numberOfCourses=document.querySelector(".applidCourses")
-      let courseUnite = parseFloat(units)
-      if (course.checked) {
-        myCourse[courseCode] = ""
-        currentUnits += courseUnite;
-        unitTotal.textContent = currentUnits;
-        numberOfCourses.innerHTML=Object.keys(myCourse).length
-      } else {
-        currentUnits -= courseUnite
-        unitTotal.textContent = currentUnits;
-        delete myCourse[courseCode]
-      }
-      console.log(Object.keys(myCourse))
-    })
+        course.addEventListener("change", () => {
+          let courseCode = course.parentElement.nextElementSibling.innerHTML;
+           let courseName= course.parentElement.textContent;
+            const units = course.parentElement.nextElementSibling.nextElementSibling.innerHTML;
+            const semester = course.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.innerHTML;
+            const unitTotal = document.querySelector(".current");
+            const numberOfCourses=document.querySelector(".applidCourses")
+            
+          let courseUnite = parseFloat(units)
+
+          if (course.checked) {
+              currentUnits += courseUnite;
+              unitTotal.textContent = currentUnits;
+              
+            courseNumber += 1;
+            myCourseDetails = {}
+            myCourseDetails.name = courseName;
+            myCourseDetails.code = courseCode;
+            myCourseDetails.unit = units;
+            myCourseDetails.semester = semester;
+            
+            myCourse.push(myCourseDetails)
+          
+            numberOfCourses.innerHTML = courseNumber;
+            
+          } else {
+              currentUnits -= courseUnite
+              unitTotal.textContent = currentUnits; 
+            courseNumber -= 1;
+            numberOfCourses.innerHTML = courseNumber;
+            let index = myCourse.indexOf(myCourseDetails)
+            // console.log(myCourseDetails)
+            
+            if (index !== -1) {
+               myCourse.splice(index,1)
+            }
+            console.log(myCourse)
+            console.log(index)
+          }
+          
+        })
   })
+  function SubmitCourse(myCourse){
+    let submitButton = document.querySelector(".couseRegBtn");
+    submitButton.addEventListener("click", () => {
+      for (let i = 0; i < studentDataBase.length; i++){
+        if (studentDataBase[i].addmisionNo === admissionNumber) {
+          studentDataBase[i].courses = myCourse;
+          console.log(studentDataBase)
+        }
+      }
+      ViewSection(currentUnits,courseNumber)
+    })
+    
+  }
+  SubmitCourse(myCourse);
 }
 CourseRegistration()
+
+// display coursed registerd on the view section
+
+function ViewSection(total,totalCourse) {
+  let tbody = document.querySelector(".diplayRegisterd")
+  let courseDetails;
+document.querySelector(".toTal").innerHTML=total
+document.querySelector(".registerD").innerHTML=totalCourse
+
+
+  for (let i = 0; i < studentDataBase.length; i++) {
+    if (studentDataBase[i].addmisionNo === admissionNumber) {
+      courseDetails = studentDataBase[i].courses
+    }
+  }
+  for (let i = 0; i < courseDetails.length; i++) {
+    let eachCourse = `
+    <tr>
+        <td>${courseDetails[i].name}</td>
+        <td>${courseDetails[i].code}</td>
+        <td>${courseDetails[i].unit}</td>
+        <td>${courseDetails[i].semester}</td>
+    </tr>
+    `
+    tbody.innerHTML += eachCourse
+    console.log(eachCourse)
+  }
+}
+
+

@@ -533,6 +533,22 @@ header{
 .couseRegBtn button:hover{
     background-color: rgb(156, 9, 9);
 }
+.submissonSuccess{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10px;
+}
+.submissonSuccess img{
+    width: 320px;
+}
+.submissonSuccess p{
+    font-size: 20px;
+    color: rgb(78, 165, 20);
+    font-weight: 600;
+    font-family: sans-serif;
+}
 /* hostel registration */
 .hostel{
     display: none;
@@ -589,11 +605,24 @@ header{
     width: 200px;
     padding-bottom: 2px;
 }
+.slide{
+    display: none;
+}
+.humNotification{
+    display: none;
+}
+
+
+
+
 /* mobbile responsivenes */
 @media(max-width:320px){
   body{
         margin: 0px;
         padding: 0px;
+        height: 100vh;
+    }
+    header{
     }
     .navigation{
         display: none;
@@ -605,11 +634,13 @@ header{
         width: 100%;
         background-color: rgb(163, 221, 245);
         padding-top: 0px;
-        display: flex;
+        display: none;
         justify-content: center;
     }
     .mobileDetails{
-        display: block;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
     }
     .header{
         width: 100%;
@@ -621,14 +652,16 @@ header{
     }
     .headernot{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
         position: absolute;
-        top: 10%;
-        left: 40%;
+        top: 2%;
     }
     .headernot img{
-        width: 80px;
-        border-radius: 50%;
+        width: 50px;
+        border-radius: 10%;
+        margin-right: 10px;
     }
     .discription{
         display: none;
@@ -639,12 +672,102 @@ header{
     .headerSearch{
         display: none;
     }
+
+    .brifInfo{
+        display: none;
+    }
+    .mobileInfo{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 12px;
+        width: 100px;
+    }
+    .mobilename{
+        font-size: 13px;
+        font-family: sans-serif;
+        color: black;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+    .acadamicInfo{
+        margin-top: 90px;
+        border: none;
+        border-radius: 10px;
+    }
+    .acadamicNotification{
+        width: 85%;
+        padding: 20px ;
+    }
+   
+    .humNotification{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        left: 79%;
+        justify-content: space-between;
+        top: 2%;
+        margin-right: 20px;
+    }
+    .humbugar{
+        position: relative ;
+        display: block;
+        width: 35px;
+        cursor: pointer;
+
+        appearance: none;
+        background-color: none;
+        outline: none;
+    }
+    .bar{
+        position: relative;
+    }
+    .humbugar .bar, .humbugar::after, .humbugar::before{
+        content: "";
+        display: block;
+        width: 80%;
+        height: 3px;
+        background: black;
+        margin: 4px 0px;
+    }
+    .mobileNoti{
+        margin-right: 10px;
+    }
+
+    /* navbar */
+
+    .slide{
+        position: absolute;
+        top: 1%;
+        width: 450px;
+        height: 600px;
+        display: flex;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+    }
+    .slide li{
+        list-style: none;
+        width: 100px;
+    }
+    .slide div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-left: 120px;
+        margin-top: 10px;
+        height: 30px;
+    }
+
 }
 
 /* 
  header
     <header>
-       <!-- logo -->
+     
+    <!-- logo -->
        
        <!-- navegation bar -->
        <div class="navbar">

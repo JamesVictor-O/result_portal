@@ -13,38 +13,38 @@
       <section class="navigation">
         <!-- profile picture -->
          <div class="naviImage">
-            <img src="assets/profile.png" class="navProfilePic" width="80px">
+            <img src="../assets/profile.png" class="navProfilePic" width="80px">
             <div class="navName">james victor</div>
          </div>
 
          <!-- navigation -->
          <div class="navBars">
              <div class="navs dashBtn">
-               <img src="assets/dashboardIcon.png" width="30px">
+               <img src="../assets/dashboardIcon.png" width="30px">
                 <li>Dashboard</li>
              </div>
              <div class="navs proBtn">
-               <img src="assets/profileIcon.png" width="30px">
+               <img src="../assets/profileIcon.png" width="30px">
                 <li>Profile</li>
              </div>
              <div class="navs resuBtn">
-               <img src="assets/resultIcon.png" width="30px">
+               <img src="../assets/resultIcon.png" width="30px">
                 <li>Result</li>
              </div>
              <div class="navs regisBtn">
-               <img src="assets/resultIcon.png" width="30px">
+               <img src="../assets/new-registration-icon (1).png" width="30px">
                 <li>Registration</li>
              </div>
              <div class="navs paymBtn">
-               <img src="assets/paymentIcon.png" width="30px">
+               <img src="../assets/paymentIcon.png" width="30px">
                 <li>Payments</li>
              </div>
              <div class="navs secuBtn">
-               <img src="assets/securityIcon.png" width="30px">
+               <img src="../assets/securityIcon.png" width="30px">
                 <li>Security</li>
              </div>
              <div class="navs logBtn">
-               <img src="assets/loginIcon.png" width="30px">
+               <img src="../assets/loginIcon.png" width="30px">
                 <li>Logout</li>
              </div>
 
@@ -58,7 +58,7 @@
             <div class="header">
                <div class="logo">
                   <div>
-                      <img src="assets/logo.png" width="30px">
+                      <img src="../assets/logo.png" width="30px">
                  </div>
                   <div class="institute">
                       <h2>ouTrich <br><span>INSTITUE OF MANAGEMENT</span></h2>
@@ -68,21 +68,66 @@
                 <input type="search" placeholder="Search">
              </div>
              <div class="headernot">
-               <div class="noti">
-                  <img src="assets/notificationIcon.png" width="20px">
-               </div>
-               
-               <div class="notiprofil">
-                  <img src="assets/profile.png" class="sideProfilePic" width="40px">
-               </div>
-               <!-- for moblile -->
+                  <div class="noti">
+                     <img src="../assets/notificationIcon.png" width="20px">
+                  </div>
+                  
+                  <div class="notiprofil">
+                     <img src="../assets/profile.png" class="sideProfilePic" width="40px">
+                  </div>
+                  <!-- for moblile -->
 
-             <div class="mobileDetails">
-                  <div>James victor</div>
+                  <div class="mobileDetails">
+                        <div class="mobilename">Hi, James victor</div>
+                        <div class="mobileInfo">
+                           <div>1710311016</div>
+                           <div>400L</div>
+                        </div>
+                  </div>
+
+                  <!-- mobile slide for navBars -->
+                  <div class="slide">
+                     <div class="navs dashBtn">
+                         <li>Dashboard</li>
+                      </div>
+                      <div class="navs proBtn">
+                         <li>Profile</li>
+                      </div>
+                      <div class="navs resuBtn">
+                         <li>Result</li>
+                      </div>
+                      <div class="navs regisBtn">
+                         <li>Registration</li>
+                      </div>
+                      <div class="navs paymBtn">
+                         <li>Payments</li>
+                      </div>
+                      <div class="navs secuBtn">
+                         <li>Security</li>
+                      </div>
+                      <div class="navs logBtn">
+                         <li>Logout</li>
+                      </div>
+         
+                  </div>
              </div>
-             </div>
+
+               <div class="humNotification">
+                  <div class="mobileNoti">
+                     <img src="../assets/notificationIcon.png" width="20px">
+                  </div>
+                  <div class="humbugar">
+                     <div class="bar"></div>
+                  </div>
+                  
+               </div>
+
             </div>
+            </div>
+            <!-- mobile navMenu -->
 
+               
+   
             <div class="discription">
                <div>
                    <span class="navigationDis">Dashboard</span>
@@ -131,12 +176,12 @@
                   <div>
                      <h5>GPA</h5>
                      <span>4.82</span>
-                     <img src="assets/ViewIcon.png" width="15px"> 
+                     <img src="../assets/ViewIcon.png" width="15px"> 
                    </div>
                    <div>
                      <h5>CGPA</h5>
                      <span>...</span>
-                     <img src="assets/ViewIcon.png" width="15px"> 
+                     <img src="../assets/ViewIcon.png" width="15px"> 
                    </div>
                    <div>
                      <h5>Degree unit</h5>
@@ -311,8 +356,8 @@
                         <th>Grade</th>
                     </tr>
                   </thead>
-                  <tbody>
-                     <tr>
+                  <tbody class="resultBody">
+                     <!-- <tr>
                         <td>Introduction to Chimistry</td>
                         <td>Chm 101</td>
                         <td>Composery</td>
@@ -332,7 +377,7 @@
                         <td>Composery</td>
                         <td>2</td>
                         <td>C</td>
-                     </tr>
+                      </tr>
                      <tr>
                         <td>Introduction to BiologyII</td>
                         <td>Bio 102</td>
@@ -353,7 +398,7 @@
                         <td>Composery</td>
                         <td>3</td>
                         <td>C</td>
-                     </tr>
+                     </tr> -->
                   </tbody>
                </table>
             </div>
@@ -454,31 +499,31 @@
                         </thead>
                         <tbody>
                            <tr>
-                              <td><input type="checkbox"class="selectCourse">Introduction to Chemistry</td>
+                              <td><input value="composary" type="checkbox" class="selectCourse">Introduction to Chemistry</td>
                               <td>Chm 101</td>
                               <td>4</td>
                               <td>First</td>
                            </tr>
                            <tr>
-                              <td><input type="checkbox" class="selectCourse">Electrical Machines</td>
+                              <td><input value="composary" type="checkbox" class="selectCourse">Electrical Machines</td>
                               <td>Ems 101</td>
                               <td>4</td>
                               <td>Second</td>
                            </tr>
                            <tr>
-                              <td><input type="checkbox" class="selectCourse">Computer aided electrical drawing</td>
+                              <td><input value="composary" type="checkbox" class="selectCourse">Computer aided electrical drawing</td>
                               <td>Ced 101</td>
                               <td>3</td>
                               <td>Second</td>
                            </tr>
                            <tr>
-                              <td><input type="checkbox" class="selectCourse">Electrical Power generation</td>
+                              <td><input value="composary" type="checkbox" class="selectCourse">Electrical Power generation</td>
                               <td>EPG101</td>
                               <td>4</td>
                               <td>First</td>
                            </tr>
                            <tr>
-                              <td><input type="checkbox" class="selectCourse">Transmission and Distribution</td>
+                              <td><input value="composary" type="checkbox" class="selectCourse">Transmission and Distribution</td>
                               <td>TDS101</td>
                               <td>4</td>
                               <td>First</td>
@@ -490,13 +535,13 @@
                               <td>First</td>
                            </tr>
                            <tr>
-                              <td><input type="checkbox" class="selectCourse">Estimation and Specification</td>
+                              <td><input value="composary" type="checkbox" class="selectCourse">Estimation and Specification</td>
                               <td>ESS113</td>
                               <td>4</td>
                               <td>First</td>
                            </tr>
                            <tr>
-                              <td><input type="checkbox" class="selectCourse">Electrical Installation</td>
+                              <td><input value="composary" type="checkbox" class="selectCourse">Electrical Installation</td>
                               <td>EIS104</td>
                               <td>4</td>
                               <td>First</td>
@@ -540,16 +585,20 @@
                                  <td>First</td>
                               </tr>
                               <tr>
-                                 <td><input type="checkbox">Introduction to Chemistry</td>
+                                 <td><input  type="checkbox">Introduction to Chemistry</td>
                                  <td>Chm 101</td>
                                  <td>4</td>
                                  <td>First</td>
                               </tr>
                         </tbody>
                      </table>
+                     <div class="couseRegBtn">
+                        <button>Submit</button>
+                     </div>
                   </div>
-                  <div class="couseRegBtn">
-                     <button>Submit</button>
+                  <div class="submissonSuccess">
+                     <img src="../assets/successful.png">
+                     <p>Registration successfull</p>
                   </div>
              </div>
               <!-- registerd course -->
@@ -575,58 +624,11 @@
                         <th>Course code</th>
                         <th>Unit</th>
                         <th>Semester</th>
+                        <th>Status</th>
                      </tr>
                   </thead>
                   <tbody class="diplayRegisterd">
-                     <!-- <tr>
-                        <td>Introduction to Chemistry</td>
-                        <td>Chm 101</td>
-                        <td>4</td>
-                        <td>First</td>
-                     </tr>
-                     <tr>
-                        <td>Electrical Machines</td>
-                        <td>EMS 101</td>
-                        <td>4</td>
-                        <td>Second</td>
-                     </tr>
-                     <tr>
-                        <td>Computer aided electrical drawing</td>
-                        <td>CED 101</td>
-                        <td>3</td>
-                        <td>Second</td>
-                     </tr>
-                     <tr>
-                        <td>Introduction to Chemistry</td>
-                        <td>Chm 101</td>
-                        <td>4</td>
-                        <td>First</td>
-                     </tr>
-                     <tr>
-                        <td>Introduction to Chemistry</td>
-                        <td>Chm 101</td>
-                        <td>4</td>
-                        <td>First</td>
-                     </tr>
-                     <tr>
-                        <td>Introduction
-                            to Chemistry</td>
-                        <td>Chm 101</td>
-                        <td>4</td>
-                        <td>First</td>
-                     </tr>
-                     <tr>
-                        <td>Introduction to Chemistry</td>
-                        <td>Chm 101</td>
-                        <td>4</td>
-                        <td>First</td>
-                     </tr>
-                     <tr>
-                        <td>Introduction to Chemistry</td>
-                        <td>Chm 101</td>
-                        <td>4</td>
-                        <td>First</td>
-                     </tr> -->
+                     
                   </tbody>
                 </table>
             </div>
@@ -685,6 +687,6 @@
          </section>
       </section>
    </main>
-    <script src="index.js"></script>
+    <script src="bundle.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
   "name": "studentresult",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
@@ -10,16 +10,38 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "dotenv-webpack": "^8.0.1",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
+  },
   "dependencies": {
+    "assert": "^2.0.0",
+    "browserify-aes": "^1.2.0",
+    "browserify-sign": "^4.2.1",
+    "browserify-zlib": "^0.2.0",
     "buffer": "^6.0.3",
+    "create-ecdh": "^4.0.4",
+    "create-hash": "^1.2.0",
+    "create-hmac": "^1.1.7",
     "crypto-browserify": "^3.12.0",
+    "diffie-hellman": "^5.0.3",
     "dotenv": "^16.3.1",
-    "firebase": "^9.23.0",
+    "events": "^3.3.0",
+    "firebase": "^8.6.8",
+    "https-browserify": "^1.0.0",
+    "inherits": "^2.0.4",
     "os-browserify": "^0.3.0",
     "path-browserify": "^1.0.1",
-    "stream-browserify": "^3.0.0"
-  },
-  "devDependencies": {
-    "webpack-cli": "^5.1.4"
+    "pbkdf2": "^3.1.2",
+    "pbkdf2-compat": "^4.0.0",
+    "process": "^0.11.10",
+    "randombytes": "^2.1.0",
+    "readable-stream": "^4.4.2",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.1",
+    "util": "^0.12.5",
+    "vm": "^0.1.0"
   }
 }

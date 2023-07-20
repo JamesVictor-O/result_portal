@@ -6,7 +6,7 @@ import {
   addDoc, deleteDoc, doc, updateDoc
 } from 'firebase/firestore'
 const firebaseConfig = {
-apiKey: "AIzaSyCiT-CionXopkSgaO0FkwIQlUH0HpbnwZY",
+apiKey: "A",
   authDomain: "schoolportal-a72a0.firebaseapp.com",
   projectId: "schoolportal-a72a0",
   storageBucket: "schoolportal-a72a0.appspot.com",
@@ -97,7 +97,7 @@ const studentDataBase = [
 const admissionNumber = "1310211016";
 
 
-
+console.log(process.env.API_KEY);
 
 // init firebase app
 initializeApp(firebaseConfig)
@@ -122,7 +122,6 @@ onSnapshot(colRef, (snapshot) => {
     snapshot.docs.forEach((doc) => {
       students.push({ ...doc.data(), id: doc.id})
     })
-    // console.log(students[0].student.length)
   let fireStoreDataBase = students[0].student;
   let fireId=students[0].id
   displayResult(fireStoreDataBase, fireId)
@@ -303,9 +302,6 @@ function CourseRegistration(baseData,Id){
             myCourse.push(myCourseDetails)
           
             numberOfCourses.innerHTML = courseNumber;
-
-            // console.log(myCourseDetails)
-            // console.log(units)
             
           } else {
               currentUnits -= courseUnite
@@ -356,7 +352,7 @@ function CourseRegistration(baseData,Id){
 function ViewSection(total,totalCourse) {
   let tbody = document.querySelector(".diplayRegisterd")
   let courseDetails;
-  document.querySelector(".toTal").innerHTML=total
+  
   document.querySelector(".registerD").innerHTML=totalCourse
   let studentData = localStorage.getItem("studentData");
   let retrivedStudentData = JSON.parse(studentData)
@@ -373,13 +369,21 @@ function ViewSection(total,totalCourse) {
     let eachCourse = `
     <tr>
         <td>${retrivedMyCourse[i].name}</td>
-        <td>${retrivedMyCourse[i].code}</td>
-        <td>${retrivedMyCourse[i].unit}</td>
+        <td class="allCourses>${retrivedMyCourse[i].code}</td>
+        <td class="allUnits">${retrivedMyCourse[i].unit}</td>
         <td>${retrivedMyCourse[i].semester}</td>
         <td>${retrivedMyCourse[i].status}</td>
     </tr>
     `
     tbody.innerHTML += eachCourse
+    let total = 0;
+    let allCourses;
+    const Allunits = document.querySelectorAll(".allUnits");
+    const AllCourses = document.querySelectorAll(".allCourses");
+    Allunits.forEach(units => {
+      total += Number(units.innerHTML);
+      document.querySelector(".toTal").innerHTML=total
+    })
   }
 }
 ViewSection()
@@ -393,16 +397,20 @@ function displayResult(baseData,Id) {
     }
     if (baseData[i].hasOwnProperty('courses')) {
       document.querySelector(".register").style.display="none"
-      document.querySelector(".submissonSuccess").style.display="flex"
+      document.querySelector(".submissonSuccess").style.display = "flex";
+      let allDetails = document.querySelectorAll(".otherdi");
+      allDetails.forEach(details => {
+        details.style.display = "none"
+      });
+      document.querySelector(".deadline").innerHTML="Submited On"
     }
   }
- console.log(courseDetails)
   for (let i = 0; i < baseData.length; i++) {
     let eachCourse = `
     <tr>
         <td>${courseDetails[i].name}</td>
         <td>${courseDetails[i].code}</td>
-        <td>${courseDetails[i].status}</td>
+        <td>${courseDetails[i].unit}</td>
         <td>${courseDetails[i].unit}</td>
         <td>${courseDetails[i].grade}</td>
     </tr>
@@ -412,11 +420,58 @@ function displayResult(baseData,Id) {
 
 }
 
-// function MobileNavigation{
-//   const humbugar = document.querySelector(".humbugar");
-//   humbugar.addEventListener("click", () => {
-    
-//   })
-// }
+function OpenCloseNavbar() {
+  const humbugar = document.querySelector(".humbugar");
+  const navigationMenu=document.querySelector(".mobile-nav")
+  if (navigationMenu.classList.contains("isActive")) {
+    humbugar.classList.add("is-active")
+  } else {
+    humbugar.classList.remove("is-active")
+  }
+}
 
+function Humbuger(){
+  const humbugar = document.querySelector(".humbugar");
+  const navigationMenu=document.querySelector(".mobile-nav")
+  humbugar.addEventListener("click", () => {
+    navigationMenu.classList.toggle("isActive")
+     OpenCloseNavbar()
+  })
+}
 
+Humbuger();
+
+function MobileNavigation() {
+  const navigationMenu=document.querySelector(".mobile-nav")
+  const Buttons = document.getElementsByClassName("navButtons");
+  const allNavButtons = Array.from(Buttons)
+
+  allNavButtons.map(navButton => {
+    navButton.addEventListener("click", (e) => {
+      const elementId = e.target.id;
+     
+
+      for (let i = 0; i < allNavButtons.length; i++){
+        const pageElementClass = allNavButtons[i].id;
+        let elements = document.querySelector("." + pageElementClass) 
+
+        if (elements.className.includes(elementId)) {
+          elements.style.display = "block";
+          navigationMenu.classList.remove("isActive")
+          OpenCloseNavbar()
+        } else {
+          elements.style.display = "none";
+        }
+
+      }
+      
+      navigationMenu.classList.remove("isActive")
+      OpenCloseNavbar()
+     })
+  })
+
+  
+  
+}
+
+MobileNavigation()

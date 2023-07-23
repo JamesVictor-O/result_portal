@@ -9,7 +9,6 @@ import {
   addDoc, deleteDoc, doc, updateDoc, getDocs
 } from 'firebase/firestore'
 
-
 const firebaseConfig = {
 apiKey: "",
   authDomain: "schoolportal-a72a0.firebaseapp.com",
@@ -81,7 +80,6 @@ const db = getFirestore()
 const colRef = collection(db, 'student')
 //get Collection data
 
-
 async function dataFromFirebase(details,submitcourse) {
   let students = []
   try {
@@ -91,8 +89,8 @@ async function dataFromFirebase(details,submitcourse) {
     })
 
     let fireStoreDataBase = students[0].student;
-    let fireId = students[0];
-    submitcourse(fireId,studentDataBase,admissionNumber)
+    let  fireId = students[0];
+    submitcourse({ studentDataBase, admissionNumber,dataBaseUpdating, fireId })
     details(fireStoreDataBase)
   }catch(error){
     console.log(error)
@@ -100,12 +98,11 @@ async function dataFromFirebase(details,submitcourse) {
 }
 dataFromFirebase(DisplayDetails, submitCourseRegistration);
 
-function manual(id) {
-  const docRef = doc(db, 'student', id)
+function dataBaseUpdating(fireId){
+  const docRef = doc(db, 'student', fireId)
       updateDoc(docRef, {
         student: studentDataBase
-      })
-  console.log("manually updated")
+      }) 
 }
 
 function HandlePageNavigation(pagenaveBar, page1, page2, page3, page4, dName) {

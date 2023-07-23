@@ -17,10 +17,10 @@
 //     }
 //     SubmitCourse(myCourse,baseData, Id);
 // }
-   
+let courseTobeRegisterd = []
 function studentCourseRegistration() {
     const courseSelected = document.querySelectorAll(".selectCourse");
-    let courseTobeRegisterd = []
+    
     let currentCourseUnits = 0;
     let numberOfCoursesSelected = 0
     
@@ -54,7 +54,6 @@ function studentCourseRegistration() {
             courseTobeRegisterd.push(myCourseDetails)
           
             numberOfCourses.innerHTML = numberOfCoursesSelected;
-            console.log(courseTobeRegisterd)
           
           } else {
               currentCourseUnits -= courseUnite
@@ -70,11 +69,12 @@ function studentCourseRegistration() {
           }
           
         })
+      
     })
-
+  
 } 
 
-function submitCourseRegistration(dataBaseId,studentDataBase,admissionNumber) {
+function submitCourseRegistration({ studentDataBase, admissionNumber, dataBaseUpdating, fireId  }) {
   let submitButton = document.querySelector(".couseRegBtn");
     submitButton.addEventListener("click", () => {
 
@@ -85,12 +85,7 @@ function submitCourseRegistration(dataBaseId,studentDataBase,admissionNumber) {
         })        
         document.querySelector(".register").style.display="none"
         document.querySelector(".submissonSuccess").style.display="flex"
-  
-        const docRef = doc(db, 'student', dataBaseId)
-        updateDoc(docRef, {
-          student: studentDataBase
-        })
-      console.log(courseTobeRegisterd)
+      dataBaseUpdating(fireId)
       })
 }
 export {studentCourseRegistration,submitCourseRegistration}

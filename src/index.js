@@ -1,12 +1,17 @@
-require('dotenv').config();
+import {
+  studentCourseRegistration,
+  submitCourseRegistration
+} from './studentsRegistration';
 
 import { initializeApp } from 'firebase/app'
 import {
   getFirestore, collection, onSnapshot,
-  addDoc, deleteDoc, doc, updateDoc
+  addDoc, deleteDoc, doc, updateDoc, getDocs
 } from 'firebase/firestore'
+
+
 const firebaseConfig = {
-apiKey: "A",
+apiKey: "",
   authDomain: "schoolportal-a72a0.firebaseapp.com",
   projectId: "schoolportal-a72a0",
   storageBucket: "schoolportal-a72a0.appspot.com",
@@ -14,7 +19,7 @@ apiKey: "A",
   appId: "1:941253254880:web:75f1e9e92889cf4c4efa85"
 };
 
-let submitButton = document.querySelector(".couseRegBtn");
+
 const studentDataBase = [
   {
       name: "james victor ochula",
@@ -29,61 +34,28 @@ const studentDataBase = [
       //     {name:"james", age:18, class:"ss2"},
       //     {name:"victor", age:18, class:"ss2"},
       //   ]
-      // courses: {
-      //     EMS101: "",
-      //     CED101: "68",
-      //     EPG101: "",
-      //     TDS101: "56",
-      //     BMS112: "",
-      //     ESS113: "",
-      //     EEM112: "40",
-      //     EMS102: "",
-      //     EIS104: "",
-      //     PAH104:""
-      // }
+
   },
   {
       name: "musa ahamed baba",
       department:"statistics",
       addmisionNo: "1310211017",
-      image:"assets/profile2.png",
+      image:"../assets/profile2.png",
       dateOfBirth: "24-04-2000",
       department:"Statistics",
       program: "Bachelor of Science in Statistics",
       seasion: " jan 5. 2020/3rd",
-      courses: {
-          EMS101: "",
-          CED101: "60",
-          EPG101: "",
-          TDS101: "",
-          BMS112: "45",
-          ESS113: "",
-          EEM112: "",
-          EMS102: "",
-          EIS104: "",
-          PAH104:""
-      }
+      
   },
   {
       name: "Chigozi samule",
       addmisionNo: "1310211018",
       department:"Physics",
-      image:"assets/profile3.png",
+      image:"../assets/profile3.png",
       dateOfBirth: "24-05-2017",
       program: "Bachelor of Science in Physics",
       seasion: " oct 3. 2020/3rd",
-      courses: {
-          EMS101: "",
-          CED101: "",
-          EPG101: "",
-          TDS101: "",
-          BMS112: "",
-          ESS113: "",
-          EEM112: "",
-          EMS102: "",
-          EIS104: "",
-          PAH104:""
-      }
+      
   },
   {
       name: "musa Ahamad baba",
@@ -94,62 +66,47 @@ const studentDataBase = [
      
   },
 ]
+
 const admissionNumber = "1310211016";
 
 
-console.log(process.env.API_KEY);
+studentCourseRegistration()
 
 // init firebase app
 initializeApp(firebaseConfig)
 
 // init service
 const db = getFirestore()
-
 // collection ref
 const colRef = collection(db, 'student')
-
 //get Collection data
 
 
-//
-
-// addDoc(colRef, {
-//   student: studentDataBase,
-// })
-onSnapshot(colRef, (snapshot) => {
-    let students = []
-    
-    snapshot.docs.forEach((doc) => {
-      students.push({ ...doc.data(), id: doc.id})
+async function dataFromFirebase(details,submitcourse) {
+  let students = []
+  try {
+    let querySnapshot = await getDocs(colRef);
+    querySnapshot.forEach(doc => {
+      students.push({...doc.data(), id: doc.id})
     })
-  let fireStoreDataBase = students[0].student;
-  let fireId=students[0].id
-  displayResult(fireStoreDataBase, fireId)
-  CourseRegistration(fireStoreDataBase,fireId)
 
+    let fireStoreDataBase = students[0].student;
+    let fireId = students[0];
+    submitcourse(fireId,studentDataBase,admissionNumber)
+    details(fireStoreDataBase)
+  }catch(error){
+    console.log(error)
+  }
+}
+dataFromFirebase(DisplayDetails, submitCourseRegistration);
 
-  })
-
-  const docRef=doc(db, 'student', 
-  "IMYJ1UukXCJ3IRror8hU"
-  )
-  deleteDoc(docRef) 
-
-// adding docs to the firebase
-
-// submitButton.addEventListener("click", (e)=>{
-//   e.preventDefault;
-//   addDoc(colRef, {
-//     student: studentDataBase
-//   })
-
-//   const docRef=doc(db, 'students', 
-//   "R3obsogRe19y24iMMnE3"
-//   )
-//   deleteDoc(docRef) 
-// })
-
-// handling page navigation
+function manual(id) {
+  const docRef = doc(db, 'student', id)
+      updateDoc(docRef, {
+        student: studentDataBase
+      })
+  console.log("manually updated")
+}
 
 function HandlePageNavigation(pagenaveBar, page1, page2, page3, page4, dName) {
   let navigationDisplay=document.querySelector(".navigationDis")
@@ -242,7 +199,7 @@ PageNavigation()
 
 // display information from student database
 
-function DisplayDetails() {
+function DisplayDetails(StoreDataBase) {
   const onscreenAdmissionNum = document.querySelector(".admissionNum");
   const onscreenName = document.querySelector(".onscreenName");
   const onscreenPrograme = document.querySelector(".program");
@@ -254,98 +211,16 @@ function DisplayDetails() {
 
   for (let i = 0; i < studentDataBase.length; i++){
     if (studentDataBase[i].addmisionNo === admissionNumber) {
-      onscreenAdmissionNum.innerHTML = studentDataBase[i].addmisionNo;
-      onscreenName.innerHTML = studentDataBase[i].name;
-      onscreenPrograme.innerHTML = studentDataBase[i].program;
-      sideProfilePic.src = studentDataBase[i].image;
-      navigationName.innerHTML = studentDataBase[i].name;
-      navigationProfilPicture.src = studentDataBase[i].image;
-      department.textContent = studentDataBase[i].department;
+      onscreenAdmissionNum.innerHTML = StoreDataBase[i].addmisionNo;
+      onscreenName.innerHTML = StoreDataBase[i].name;
+      onscreenPrograme.innerHTML = StoreDataBase[i].program;
+      sideProfilePic.src = StoreDataBase[i].image;
+      navigationName.innerHTML = StoreDataBase[i].name;
+      navigationProfilPicture.src = StoreDataBase[i].image;
+      department.textContent = StoreDataBase[i].department;
     }
   }
 }
-DisplayDetails()
-
-// Course registration
-function CourseRegistration(baseData,Id){
-  const selectCourse = document.querySelectorAll(".selectCourse");
-  let myCourse=[]
-  let currentUnits = 0;
-  let courseNumber = 0;
-  selectCourse.forEach(course => {
-        course.addEventListener("change", () => {
-            let courseCode = course.parentElement.nextElementSibling.innerHTML;
-            let courseName= course.parentElement.textContent;
-            const units = course.parentElement.nextElementSibling.nextElementSibling.innerHTML;
-            const semester = course.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.innerHTML;
-            const unitTotal = document.querySelector(".current");
-            const courseStatus= course.value
-            const numberOfCourses=document.querySelector(".applidCourses")
-            
-          let courseUnite = parseFloat(units)
-
-          if (course.checked) {
-              currentUnits += courseUnite;
-              unitTotal.textContent = currentUnits;
-              
-            courseNumber += 1;
-
-           const myCourseDetails = {}
-
-            myCourseDetails.name = courseName;
-            myCourseDetails.code = courseCode;
-            myCourseDetails.grade="A"
-            myCourseDetails.unit = units;
-            myCourseDetails.status=courseStatus
-            myCourseDetails.semester = semester;
-              
-            myCourse.push(myCourseDetails)
-          
-            numberOfCourses.innerHTML = courseNumber;
-            
-          } else {
-              currentUnits -= courseUnite
-              unitTotal.textContent = currentUnits; 
-              courseNumber -= 1;
-              numberOfCourses.innerHTML = courseNumber;
-              const index = myCourse.findIndex(function(myCourseDetails) {
-                return myCourseDetails.name === courseName;
-              });
-            if (index !== -1) {
-                myCourse.splice(index,1)
-            }
-            console.log(myCourse )
-          }
-        })
-        
-  })
-  function SubmitCourse(myCourse){
-    
-    submitButton.addEventListener("click", () => {
-      for (let i = 0; i < studentDataBase.length; i++){
-        if (studentDataBase[i].addmisionNo === admissionNumber) {
-         
-          studentDataBase[i].courses = myCourse;
-        }
-      }
-
-      
-      document.querySelector(".register").style.display="none"
-      document.querySelector(".submissonSuccess").style.display="flex"
-
-      const docRef = doc(db, 'student', Id)
-      updateDoc(docRef, {
-        student: studentDataBase
-      })
-      
-      console.log(baseData)
-      ViewSection(currentUnits, courseNumber)
-    })
-    
-  }
-  SubmitCourse(myCourse,baseData, Id);
- }
-// CourseRegistration()
 
 // display coursed registerd on the view section
 
@@ -390,10 +265,21 @@ ViewSection()
 
 function displayResult(baseData,Id) {
   let tbody = document.querySelector(".resultBody");
-  let courseDetails;
   for (let i = 0; i < baseData.length; i++) {
-    if (baseData[i].addmisionNo === admissionNumber) {
-       courseDetails = baseData[i].courses
+    if (baseData[i].addmisionNo === admissionNumber  || hasOwnProperty('courses')) {
+      let courseDetails = baseData[i].courses
+       for (let i = 0; i < baseData.length; i++) {
+          let eachCourse = `
+          <tr>
+              <td>${courseDetails[i].name}</td>
+              <td>${courseDetails[i].code}</td>
+              <td>${courseDetails[i].unit}</td>
+              <td>${courseDetails[i].unit}</td>
+              <td>${courseDetails[i].grade}</td>
+          </tr>
+          `
+          tbody.innerHTML += eachCourse
+        }
     }
     if (baseData[i].hasOwnProperty('courses')) {
       document.querySelector(".register").style.display="none"
@@ -404,19 +290,9 @@ function displayResult(baseData,Id) {
       });
       document.querySelector(".deadline").innerHTML="Submited On"
     }
+          
   }
-  for (let i = 0; i < baseData.length; i++) {
-    let eachCourse = `
-    <tr>
-        <td>${courseDetails[i].name}</td>
-        <td>${courseDetails[i].code}</td>
-        <td>${courseDetails[i].unit}</td>
-        <td>${courseDetails[i].unit}</td>
-        <td>${courseDetails[i].grade}</td>
-    </tr>
-    `
-    tbody.innerHTML += eachCourse
-  }
+  
 
 }
 

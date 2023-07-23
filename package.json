@@ -28,7 +28,7 @@
     "diffie-hellman": "^5.0.3",
     "dotenv": "^16.3.1",
     "events": "^3.3.0",
-    "firebase": "^8.6.8",
+    "firebase": "^10.0.0",
     "https-browserify": "^1.0.0",
     "inherits": "^2.0.4",
     "os-browserify": "^0.3.0",
